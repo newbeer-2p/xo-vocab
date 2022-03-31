@@ -1,0 +1,304 @@
+{
+    "fruits" : [
+        {
+            "name": "apple",
+            "nameTH": "แอปเปิล",
+            "img": "./img/apple.png",
+            "level": 1
+        },
+        {
+            "name": "banana",
+            "nameTH": "กล้วย",
+            "img": "./img/banana.png",
+            "level": 1
+        },
+        {
+            "name": "blueberry",
+            "nameTH": "บลูเบอร์รี",
+            "img": "./img/blueberry.png",
+            "level": 2
+        },
+        {
+            "name": "cantaloupe",
+            "nameTH": "แคนตาลูป",
+            "img": "./img/cantaloupe.png",
+            "level": 3
+        },
+        {
+            "name": "cherry",
+            "nameTH": "เชอร์รี",
+            "img": "./img/cherry.png",
+            "level": 1
+        },
+        {
+            "name": "coconut",
+            "nameTH": "มะพร้าว",
+            "img": "./img/coconut.png",
+            "level": 1
+        },
+        {
+            "name": "grape",
+            "nameTH": "องุ่น",
+            "img": "./img/grape.png",
+            "level": 1
+        },
+        {
+            "name": "kiwi",
+            "nameTH": "กีวี",
+            "img": "./img/kiwi.png",
+            "level": 1
+        },
+        {
+            "name": "lemon",
+            "nameTH": "เลมอน",
+            "img": "./img/lemon.png",
+            "level": 1
+        },
+        {
+            "name": "lime",
+            "nameTH": "มะนาว",
+            "img": "./img/lime.png",
+            "level": 1
+        },
+        {
+            "name": "mango",
+            "nameTH": "มะม่วง",
+            "img": "./img/mango.png",
+            "level": 1
+        },
+        {
+            "name": "mangosteen",
+            "nameTH": "มังคุด",
+            "img": "./img/mangosteen.png",
+            "level": 3
+        },
+        {
+            "name": "orange",
+            "nameTH": "ส้ม",
+            "img": "./img/orange.png",
+            "level": 1
+        },
+        {
+            "name": "papaya",
+            "nameTH": "มะละกอ",
+            "img": "./img/papaya.png",
+            "level": 1
+        },
+        {
+            "name": "pineapple",
+            "nameTH": "สัปปะรด",
+            "img": "./img/pineapple.png",
+            "level": 1
+        },
+        {
+            "name": "rambutan",
+            "nameTH": "เงาะ",
+            "img": "./img/rambutan.png",
+            "level": 3
+        },
+        {
+            "name": "strawberry",
+            "nameTH": "สตรอว์เบอร์รี",
+            "img": "./img/strawberry.png",
+            "level": 1
+        },
+        {
+            "name": "tomato",
+            "nameTH": "มะเขือเทศ",
+            "img": "./img/tomato.png",
+            "level": 1
+        },
+        {
+            "name": "watermelon",
+            "nameTH": "แตงโม",
+            "img": "./img/watermelon.png",
+            "level": 1
+        },
+        {
+            "name": "lychee",
+            "nameTH": "ลิ้นจี่",
+            "img": "./img/lychee.png",
+            "level": 2
+        },
+        {
+            "name": "jackfruit",
+            "nameTH": "ขนุน",
+            "img": "./img/jackfruit.png",
+            "level": 2
+        },
+        {
+            "name": "durian",
+            "nameTH": "ทุเรียน",
+            "img": "./img/durian.png",
+            "level": 2
+        },
+        {
+            "name": "rose apple",
+            "nameTH": "ชมพู่",
+            "img": "./img/rose_apple.png",
+            "level": 2
+        },
+        {
+            "name": "dragon fruit",
+            "nameTH": "แก้วมังกร",
+            "img": "./img/dragon_fruit.png",
+            "level": 3
+        },
+        {
+            "name": "guava",
+            "nameTH": "ฝรั่ง",
+            "img": "./img/guava.png",
+            "level": 2
+        },
+        {
+            "name": "longan",
+            "nameTH": "ลำไย",
+            "img": "./img/longan.png",
+            "level": 2
+        },
+        {
+            "name": "tamarind",
+            "nameTH": "มะขาม",
+            "img": "./img/tamarind.png",
+            "level": 3
+        },
+        {
+            "name": "avocado",
+            "nameTH": "อะโวคาโด",
+            "img": "./img/avocado.png",
+            "level": 3
+        },
+        {
+            "name": "peach",
+            "nameTH": "พีช",
+            "img": "./img/peach.png",
+            "level": 1
+        },
+        {
+            "name": "star fruit",
+            "nameTH": "มะเฟือง",
+            "img": "./img/star_fruit.png",
+            "level": 2
+        },
+        {
+            "name": "pomegranate",
+            "nameTH": "ทับทิม",
+            "img": "./img/pomegranate.png",
+            "level": 3
+        },
+        {
+            "name": "blackberry",
+            "nameTH": "แบล็คเบอร์รี",
+            "img": "./img/blackberry.png",
+            "level": 1
+        },
+        {
+            "name": "passion fruit",
+            "nameTH": "เสาวรส",
+            "img": "./img/passion_fruit.png",
+            "level": 3
+        },
+        {
+            "name": "custard apple",
+            "nameTH": "น้อยหน่า",
+            "img": "./img/custard_apple.png",
+            "level": 3
+        },
+        {
+            "name": "jujube",
+            "nameTH": "พุทรา",
+            "img": "./img/jujube.png",
+            "level": 2
+        },
+        {
+            "name": "mulberry",
+            "nameTH": "ลูกหม่อน",
+            "img": "./img/mulberry.png",
+            "level": 1
+        },
+        {
+            "name": "pear",
+            "nameTH": "ลูกแพร์",
+            "img": "./img/pear.png",
+            "level": 1
+        },
+        {
+            "name": "raspberry",
+            "nameTH": "ราสเบอรี",
+            "img": "./img/raspberry.png",
+            "level": 1
+        },
+        {
+            "name": "salak",
+            "nameTH": "สละ",
+            "img": "./img/salak.png",
+            "level": 2
+        },
+        {
+            "name": "sweet potato",
+            "nameTH": "มันเทศ",
+            "img": "./img/sweet_potato.png",
+            "level": 2
+        },
+        {
+            "name": "chinese pear",
+            "nameTH": "สาลี่",
+            "img": "./img/chinese_pear.png",
+            "level": 2
+        },
+        {
+            "name": "pomelo",
+            "nameTH": "ส้มโอ",
+            "img": "./img/pomelo.png",
+            "level": 2
+        },
+        {
+            "name": "taro",
+            "nameTH": "เผือก",
+            "img": "./img/taro.png",
+            "level": 1
+        },
+        {
+            "name": "chestnut",
+            "nameTH": "เกาลัด",
+            "img": "./img/chestnut.png",
+            "level": 3
+        },
+        {
+            "name": "langsat",
+            "nameTH": "ลางสาด",
+            "img": "./img/langsat.png",
+            "level": 1
+        },
+        {
+            "name": "santol",
+            "nameTH": "กระท้อน",
+            "img": "./img/santol.png",
+            "level": 3
+        },
+        {
+            "name": "sapodilla",
+            "nameTH": "ละมุด",
+            "img": "./img/sapodilla.png",
+            "level": 3
+        },
+        {
+            "name": "prune",
+            "nameTH": "ลูกพรุน",
+            "img": "./img/prune.png",
+            "level": 1
+        },
+        {
+            "name": "yam bean",
+            "nameTH": "มันแกว",
+            "img": "./img/yam_bean.png",
+            "level": 2
+        },
+        {
+            "name": "marian plum",
+            "nameTH": "แตงไทย",
+            "img": "./img/marian_plum.png",
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,181 @@
+:root{
+    --color1: #F6D2E0;
+    --color2: #F8B7CD;
+    --color3: #FF93B7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--color1);
+}
+
+/* Navbar */
+
+header{
+    background-color: var(--color3);
+    height: 75px;
+}
+
+.nvbar {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nvbar-logo {
+    height: 75%;
+}
+
+.nvbar-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.nvbar-menu i{
+    font-size: 54px;
+}
+
+.nvbar-text{
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nvbar-menu-item>button{
+    padding: 5px;
+    vertical-align: middle;
+    background-color: transparent;
+    border: none;
+}
+
+#profile-name{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#user-online{
+    font-size: 12px;
+}
+
+.online-icon{
+    font-size: 1px!important;
+    color: green;
+}
+
+/* Navbar END */
+
+/* Lobby Page */
+
+#lobby-box{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-around;
+    height: calc(100vh - 75px);
+}
+
+.logo{
+    height: 40vh;
+}
+
+#btn-join{
+    background-color: white;
+    border: 1px solid black;
+}
+
+#profile-info{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #F8B7CD;
+    border-radius: 10px;
+}
+
+#profile-img{
+    width: 250px;
+    height: 250px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#profile-img>img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+#profile-detail{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#profile-detail>#profile-username{
+    font-size: 48px;
+    font-weight: bold;
+}
+
+#profile-detail>#profile-email{
+    transform: translateY(-20px);
+}
+
+#profile-detail>#profile-stat{
+    display: flex;
+    justify-content: space-between;
+}
+
+#profile-detail>#profile-exp{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#profile-detail>#profile-exp>#profile-exp-info{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+#profile-detail>#profile-exp>#profile-exp-progress-bar{
+    width: 100%;
+    height: 20px;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#profile-detail>#profile-exp>#profile-exp-progress-bar>div{
+    /* width: var(--exp-percent); */
+    width: 50%;
+    height: 20px;
+    background-color: var(--color3);
+}
+
+/* Lobby Page END */
+
+.modal-content{
+    background-color: var(--color1);
+}
+
+.modal-header, .modal-body {
+    border-bottom: 1px solid hsl(0, 0%, 0%, .25);
+}
+
+.modal .input-group-text{
+    background-color: var(--color2);
+    border: 1px solid hsl(0, 0%, 0%, .25);
+}
+
+.modal .form-select{
+    border: 1px solid hsl(0, 0%, 0%, .25);
+}
