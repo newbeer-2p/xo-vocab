@@ -9,3 +9,12 @@ const firebaseConfig = {
     measurementId: "G-QRQC73DHR0"
 };
 firebase.initializeApp(firebaseConfig);
+
+const refUsers = firebase.database().ref("UserList")
+
+const btnLogout = document.querySelector("#btnLogout");
+btnLogout.addEventListener('click', () => {
+    firebase.auth().signOut()
+    console.log('Logout completed.');
+    window.location.href = "./"
+})

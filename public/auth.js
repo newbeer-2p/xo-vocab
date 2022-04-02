@@ -18,10 +18,16 @@ function createUser(event) {
             }, 1000);
             const ref = firebase.database().ref("UserList")
             const currentUser = firebase.auth().currentUser;
-            ref.child(currentUser.uid).push({
-            Name: name,
-            Email: email,
-    });
+            ref.child(currentUser.uid).update({
+                uid: currentUser.uid,
+                name: name,
+                email: email,
+                win: 0,
+                lose: 0,
+                level: 1,
+                exp: 0,
+                img: "profile01"
+            });
         })
         .catch((error) => {
             signupFeedback.style = `color:crimson`;
@@ -45,6 +51,7 @@ function loginUser(event) {
             loginFeedback.innerHTML = `<i class="bi bi-check-circle-fill"></i> login Complete.`;
             setTimeout(function (){
                 loginModal.hide();
+                window.location.href = "./lobby.html"
             }, 1000);
         })
         .catch((error) => {

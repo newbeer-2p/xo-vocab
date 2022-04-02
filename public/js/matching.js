@@ -4,42 +4,38 @@ $("#btn-find").click(findingMatch)
 
 const findMatchModal = document.querySelector("#findMatchModal")
 
-let userId = prompt("Please enter your id") ?? 1;
-currentUser = {
-    uid: userId,
-    username: userId,
-    email: `${userId}@gmail.com`,
-    level: 1,
-    exp: 40,
-    win: 20,
-    lose: 11
-}
+firebase.auth().onAuthStateChanged((user) => {
+    console.log('User: ', user);
+    if (user){
+        setUpProfile(user)
+    }
+})
 
-setUpProfile()
 
-function setUpProfile(){
-    // const currentUser = firebase.auth().currentUser
-    $("#profile-name").html(`Hello, ${currentUser.uid}`)
-    $("#profile-username").html(currentUser.uid)
-    $("#profile-email").html(currentUser.email)
-    $("#profile-win").html(`Win : ${currentUser.win}`)
-    $("#profile-lose").html(`Lose : ${currentUser.lose}`)
-    $("#profile-level").html(`Level : ${currentUser.level}`)
-    $("#profile-next-to").html(`Next to level ${currentUser.level+1}`)
-    $("#profile-exp-percent").html(`${currentUser.exp} / 50`)
-    $("#profile-exp-progress-bar").attr({
-        style: `--exp-percent: calc(${(currentUser.exp)} / 50 * 100%)`
+function setUpProfile(user){
+
+    let userProfile = {}
+
+    refUsers.child(user.uid).once("value", (data) => {
+        userProfile = data.val()
+
+        $("#profile-name").html(`Hello, ${userProfile.name}`)
+        $("#profile-username").html(userProfile.name)
+        $("#profile-email").html(userProfile.email)
+        $("#profile-win").html(`Win : ${userProfile.win}`)
+        $("#profile-lose").html(`Lose : ${userProfile.lose}`)
+        $("#profile-level").html(`Level : ${userProfile.level}`)
+        $("#profile-next-to").html(`Next to level ${userProfile.level+1}`)
+        $("#profile-exp-percent").html(`${userProfile.exp} / 50`)
+        $("#profile-exp-progress-bar").attr({
+            style: `--exp-percent: calc(${(userProfile.exp)} / 50 * 100%)`
+        })
     })
 
 }
 
-function findUserInfo(){
-    // const currentUser = firebase.auth().currentUser
-}
-
 function findingMatch(){
-    // const currentUser = firebase.auth().currentUser
-    // const currentUser = {"uid": "2123"}
+    const currentUser = firebase.auth().currentUser
     const category = $("#inputCategory").val()
 
     if (!currentUser){
@@ -102,8 +98,8 @@ function findingMatch(){
 }
 
 function searchRoom(){
-    // const currentUser = firebase.auth().currentUser
-    // const currentUser = {"uid": "2123"}
+    const currentUser = firebase.auth().currentUser
+
     let found;
     refRooms.once("value", (data) => {
         data = data.val()
@@ -145,8 +141,7 @@ const countTime = setInterval(() => {
 }, 1000)
 
 $("#btn-cancel-join").click(() => {
-    // const currentUser = firebase.auth().currentUser
-    // const currentUser = {"uid": "2123"}
+    const currentUser = firebase.auth().currentUser
 
     refRooms.once("value", data => {
         data = data.val()
@@ -181,7 +176,14 @@ function updateFindMatchContent(cmd, cate="", time=1, id1="", id2=""){
         $("#inputCategory").val(cate)
         $("#inputCategory").attr({disabled: "disabled"})
         $("#btn-join").html(`Found!!!`)
-        $(".modal-text").html(`${id1} vs ${id2}`)
+
+        refUsers.child(id1).once("value", (data1) => {
+            const user1 = data1.val()
+            refUsers.child(id2).once("value", (data2) => {
+                const user2 = data2.val()
+                $(".modal-text").html(`${user1.name}<br>vs<br>${user2.name}`)
+            })
+        })
     }
     else {
         document.querySelectorAll(".join-default").forEach((el) => {$(el).show()})
@@ -193,8 +195,7 @@ function updateFindMatchContent(cmd, cate="", time=1, id1="", id2=""){
 
 refRooms.on("value", (data) => {
     data = data.val()
-    // const currentUser = firebase.auth().currentUser
-    // const currentUser = {"uid": "2123"}
+    const currentUser = firebase.auth().currentUser
     updateFindMatchContent("none")
     for (const d in data){
         const objData = data[d]
