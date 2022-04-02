@@ -179,3 +179,42 @@ header{
 .modal .form-select{
     border: 1px solid hsl(0, 0%, 0%, .25);
 }
+.homeimg{
+    height: 55vh;
+}
+#homepge{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+#btnLS{
+    background-color: white;
+    border: 1px solid black;
+}
+.chooseimg{
+    display: flex;
+}
+.signimgbox{
+    flex: 1 1 25%;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+.chooseimg img{
+    width: 100%;
+}
+.textbutton{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+}
+.boxtextbutton{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.boxtextbutton1{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+}

@@ -17,6 +17,109 @@
     <title>Home | XO Vocab</title>
   </head>
   <body>
+    <header>
+      <div class="nvbar container">
+        <div class="nvbar-logo"><img src="./img/logo2.png" height="100%"></div>
+        <div class="nvbar-menu">
+            <!-- <div class="nvbar-menu-item nvbar-text">
+                <div id="profile-name">Hello, Banana</div>
+                <div id="user-online"><i class="bi bi-circle-fill online-icon"></i> Online : <span id="number-online">10</span></div>
+            </div>
+            <div class="nvbar-menu-item">
+                <button><i class="bi bi-box-arrow-right"></i></button>
+            </div>
+            <div class="nvbar-menu-item">
+                <button><i class="bi bi-bar-chart-fill"></i></button>
+            </div> -->
+        </div>
+    </div>
+    </header>
+    <div class="container" id="homepge">
+      <div class="homeimg"><img src="./img/logo1.png" height="100%"></div>
+      <div class="loginbox"><button type="button" id="btnLS" class="btn" data-bs-toggle="modal" data-bs-target="#modal-login">Login</button></div>
+      <div class="nmtext"><p>or</p></div>
+      <div class="signupbox"><button type="button" id="btnLS" class="btn" data-bs-toggle="modal" data-bs-target="#modal-signup">register</button></div>
+    </div>
+    <!-- Modal Login -->
+    <div class="modal" id="modal-login" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Login</h5>
+            <button type="button" class="btn-close btn-cancel" data-bs-dismiss="modal" aria-lable="Close"></button>
+          </div>
+          <form id="login-form" action="" class="">
+            <div class="modal-body">
+              <p>Username:</p>
+              <input id="input-email-login" type="email" class="form-control" placeholder="Username" aria-label="title" aria-describedby="basic-addon1" required/>
+              <br/>
+              <p>Password:</p>
+              <input id="input-password-login" type="password" class="form-control" placeholder="Password" aria-label="title" aria-describedby="basic-addon1" required/>
+              <p id="feedback-msg-login"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal">
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Signup -->
+    <div class="modal" id="modal-signup" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Signup</h5>
+            <button type="button" class="btn-close btn-cancel" data-bs-dismiss="modal" aria-lable="Close"></button>
+          </div>
+          <form id="signup-form" action="" class="">
+            <div class="modal-body">
+              <div class="chooseimg">
+                <div class="signimgbox"><img src="./img/profiles/profile01.png" alt="" ></div>
+                <div class="textbutton">
+                  <div><p style="margin: 0;">Choose Image:</p></div>
+                  <div class="boxtextbutton">
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                    <button>10</button>
+                    <button>11</button>
+                    <button>12</button>
+                  </div>
+                </div>
+              </div>
+              <p>Name:</p>
+              <input id="input-name-signup" type="name" class="form-control" />
+              <br>
+              <p>Email:</p>
+              <input id="input-email-signup" type="email" class="form-control"  aria-label="title" aria-describedby="basic-addon1" required/>
+              <br/>
+              <p>Password:</p>
+              <input id="input-password-signup" type="password" class="form-control"  aria-label="title" aria-describedby="basic-addon1" required/>
+              <br>
+              <p>Confirm Password:</p>
+              <input id="input-password-signup" type="password" class="form-control"  aria-label="title" aria-describedby="basic-addon1" required/>
+              <p id="feedback-msg-signup"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal">
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary">Signup</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
     
 
     <script src="./app.js"></script>
