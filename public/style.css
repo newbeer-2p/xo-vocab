@@ -15,7 +15,7 @@ body{
 /* Navbar */
 
 header{
-    background-color: var(--color3);
+    background-color: var(--color2);
     height: 75px;
 }
 
@@ -162,6 +162,86 @@ header{
 }
 
 /* Lobby Page END */
+
+
+
+/* leaderboard-lobby */
+#leaderboard-lobby-box{
+    display: flex;
+}
+#leaderboard-box{
+    background-color: #FF93B7;
+    width: 40vw;
+    height: calc(100vh - 75px);
+    margin-right: 7px;
+}
+#leaderboard-header{
+    font-size: 3vh;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+#leaderboard-list{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    border-bottom: 1px solid var(--color1);
+}
+#leaderboard-list ul{
+    list-style-type: none;
+    display: flex;
+}
+#leaderboard-list ul li{
+    flex: 1;
+    text-align: center;
+    align-items: center;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.leaderboard-nav{
+    border-bottom: 1px solid var(--color1);
+}
+.leaderboard-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+.leaderboard-nav ul li{
+    flex-grow: 1;
+}
+.leaderboard-nav ul li p {
+    color: white;
+    font-weight: 100;
+    letter-spacing: 2px;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    transition: all 0.5s;
+}
+.text-al-center{
+    text-align: center;
+}
+.leader{
+    list-style-type: none;
+    display: flex;
+}
+#leaderboard-myRank{
+    align-items: center;
+    flex: 1;
+    text-align: center;
+}
+
+/* leaderboard-lobby END*/
+
+
 
 .modal-content{
     background-color: var(--color1);
