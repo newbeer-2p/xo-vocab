@@ -18,3 +18,13 @@ btnLogout.addEventListener('click', () => {
     console.log('Logout completed.');
     window.location.href = "./"
 })
+
+firebase.auth().onAuthStateChanged((user) => {
+    console.log('User: ', user);
+    if (user){
+        refUsers.child(user.uid).once("value", (data) => {
+            const userProfile = data.val()
+            $("#profile-name").html(`Hello, ${userProfile.name}`)
+        })
+    }
+})

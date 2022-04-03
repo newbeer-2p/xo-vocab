@@ -4,8 +4,11 @@
     --color3: #FF93B7;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
 * {
     box-sizing: border-box;
+    font-family: 'Itim', cursive;
 }
 
 body{

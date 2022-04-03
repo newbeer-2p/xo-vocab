@@ -235,12 +235,6 @@
             "level": 2
         },
         {
-            "name": "sweet potato",
-            "nameTH": "มันเทศ",
-            "img": "./img/sweet_potato.png",
-            "level": 2
-        },
-        {
             "name": "chinese pear",
             "nameTH": "สาลี่",
             "img": "./img/chinese_pear.png",
@@ -251,12 +245,6 @@
             "nameTH": "ส้มโอ",
             "img": "./img/pomelo.png",
             "level": 2
-        },
-        {
-            "name": "taro",
-            "nameTH": "เผือก",
-            "img": "./img/taro.png",
-            "level": 1
         },
         {
             "name": "chestnut",

@@ -5,7 +5,6 @@ $("#btn-find").click(findingMatch)
 const findMatchModal = document.querySelector("#findMatchModal")
 
 firebase.auth().onAuthStateChanged((user) => {
-    console.log('User: ', user);
     if (user){
         setUpProfile(user)
     }
@@ -18,8 +17,7 @@ function setUpProfile(user){
 
     refUsers.child(user.uid).once("value", (data) => {
         userProfile = data.val()
-
-        $("#profile-name").html(`Hello, ${userProfile.name}`)
+        
         $("#profile-username").html(userProfile.name)
         $("#profile-email").html(userProfile.email)
         $("#profile-win").html(`Win : ${userProfile.win}`)
@@ -181,9 +179,20 @@ function updateFindMatchContent(cmd, cate="", time=1, id1="", id2=""){
             const user1 = data1.val()
             refUsers.child(id2).once("value", (data2) => {
                 const user2 = data2.val()
-                $(".modal-text").html(`${user1.name}<br>vs<br>${user2.name}`)
+                $(".modal-text").html(`${user1.name} vs ${user2.name}<br><span id="countStart">Starting in... 5</span>`)
             })
         })
+
+        let count = 5;
+
+        const countGoToRoom = setInterval(() => {
+            count--;
+            $("#countStart").html(`Starting in... ${count}`)
+            if (count == 0){
+                clearInterval(countGoToRoom)
+                window.location.href = "./game.html"
+            }
+        }, 1000)
     }
     else {
         document.querySelectorAll(".join-default").forEach((el) => {$(el).show()})

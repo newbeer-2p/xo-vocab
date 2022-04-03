@@ -1,0 +1,119 @@
+.game{
+    height: calc(100vh - 75px - 20px);
+    display: flex;
+    flex-direction: column;
+}
+
+#game-user-info{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    height: 125px;
+}
+
+.game-info-user{
+    display: flex;
+    gap: 20px;
+}
+
+.game-info-user>.game-user-img{
+    width: 125px;
+    height: 125px;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.game-info-user>.game-user-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#game-info-user-o>.game-user-info{
+    text-align: right;
+}
+
+.game-user-info>.game-user-name{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.game-user-info>.game-user-level{
+    transform: translateY(-15px);
+}
+
+.game-user-info>.game-user-player{
+    font-size: 20px;
+}
+
+.game-user-info>.game-user-player>span{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.game-info-item{
+    font-size: 20px;
+}
+
+.game-info-item span{
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.game-info-item>#game-info-turn{
+    transform: translateY(-10px);
+}
+
+.game-info-item>#game-info-player{
+    transform: translateY(-25px);
+}
+
+.game-info-item>#game-info-category{
+    font-size: 24px;
+}
+
+#game-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#game-box>div>div{
+    display: flex;
+}
+#game-info-time{
+    font-size: 24px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.game-item{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-item > div{
+    width: 125px;
+    height: 125px;
+}
+
+.game-item > div:hover{
+    cursor: pointer;
+}
+
+.game-item > div > img{
+    width: 100%;
+}
+
+#row-1-col-1, #row-2-col-1, #row-3-col-1, #row-1-col-2, #row-2-col-2, #row-3-col-2{
+    border-right: 2px solid black;
+}
+
+#row-1-col-1, #row-1-col-2, #row-1-col-3, #row-2-col-1, #row-2-col-2, #row-2-col-3{
+    border-bottom: 2px solid black;
+}
