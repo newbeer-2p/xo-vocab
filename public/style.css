@@ -185,11 +185,13 @@ header{
     display: flex;
     flex-grow: 1;
     flex-direction: column;
-    border-bottom: 1px solid var(--color1);
+    border-bottom: 2px solid black;
 }
 #leaderboard-list ul{
     list-style-type: none;
     display: flex;
+    border-bottom: 2px solid black;
+    padding: 0;
 }
 #leaderboard-list ul li{
     flex: 1;
@@ -205,7 +207,7 @@ p {
 }
 
 .leaderboard-nav{
-    border-bottom: 1px solid var(--color1);
+    border-bottom: 2px solid black;
 }
 .leaderboard-nav ul {
     list-style: none;
