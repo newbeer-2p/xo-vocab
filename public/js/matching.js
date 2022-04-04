@@ -18,6 +18,7 @@ function setUpProfile(user){
     refUsers.child(user.uid).once("value", (data) => {
         userProfile = data.val()
         
+        $("#profile-img img").attr("src", `./img/profiles/${userProfile.img}.png`)
         $("#profile-username").html(userProfile.name)
         $("#profile-email").html(userProfile.email)
         $("#profile-win").html(`Win : ${userProfile.win}`)
@@ -159,27 +160,35 @@ $("#btn-cancel-join").click(() => {
     })
 })
 
-function updateFindMatchContent(cmd, cate="", time=1, id1="", id2=""){
+function updateFindMatchContent(cmd, room={}){
     if (cmd === "finding"){
         document.querySelectorAll(".join-default").forEach((el) => {$(el).hide()})
         document.querySelectorAll(".join-finding").forEach((el) => {$(el).show()})
-        $("#inputCategory").val(cate)
+        $("#inputCategory").val(room.category)
         $("#inputCategory").attr({disabled: "disabled"})
-        $("#btn-join").html(`[${cate}] Waiting for Player... (${time})`)
-        $(".modal-text").html(`Waiting for Player... (${time})`)
+        $("#btn-join").html(`[${room.category}] Waiting for Player... (${room.time})`)
+        $(".modal-text").html(`Waiting for Player... (${room.time ?? 0})`)
     }
     else if (cmd === "found") {
         document.querySelectorAll(".join-default").forEach((el) => {$(el).hide()})
         document.querySelectorAll(".join-finding").forEach((el) => {$(el).show()})
-        $("#inputCategory").val(cate)
+        $("#inputCategory").val(room.category)
         $("#inputCategory").attr({disabled: "disabled"})
-        $("#btn-join").html(`Found!!!`)
+        $("#btn-join").html(`Starting in... 5`)
 
-        refUsers.child(id1).once("value", (data1) => {
+        refUsers.child(room["user-x-id"]).once("value", (data1) => {
             const user1 = data1.val()
-            refUsers.child(id2).once("value", (data2) => {
+            refUsers.child(room["user-o-id"]).once("value", (data2) => {
                 const user2 = data2.val()
                 $(".modal-text").html(`${user1.name} vs ${user2.name}<br><span id="countStart">Starting in... 5</span>`)
+                
+                if (!room["tables"]){
+                    refRooms.child(room.uid).update({
+                        turn: "X",
+                        time: 0
+                    })
+                    randomVocab(room, user1, user2)
+                }
             })
         })
 
@@ -188,6 +197,7 @@ function updateFindMatchContent(cmd, cate="", time=1, id1="", id2=""){
         const countGoToRoom = setInterval(() => {
             count--;
             $("#countStart").html(`Starting in... ${count}`)
+            $("#btn-join").html(`Starting in... ${count}`)
             if (count == 0){
                 clearInterval(countGoToRoom)
                 window.location.href = "./game.html"
@@ -217,16 +227,21 @@ refRooms.on("value", (data) => {
             refRooms.child(d).update({
                 status: "found"
             })
-            updateFindMatchContent("found", objData.category, 0, objData["user-x-id"], objData["user-o-id"])
-            // clearInterval(countTime)
+            updateFindMatchContent("found", objData)
             return
         }
         else{
             refRooms.child(d).child("status").remove()
         }
 
+        if (!objData.uid){
+            refRooms.child(d).update({
+                uid: d
+            })
+        }
+
         if (currentUser.uid === objData["user-x-id"] || currentUser.uid === objData["user-o-id"]){
-            updateFindMatchContent("finding", objData.category, objData.time ?? 0)
+            updateFindMatchContent("finding", objData)
             return
         }
         else{
@@ -234,3 +249,32 @@ refRooms.on("value", (data) => {
         }
     }
 })
+
+function randomVocab(room, user1, user2){
+    let rdmVocab = [];
+    const minLevel = Math.min(Math.floor(parseInt(user1.level)) / 10, Math.floor(parseInt(user2.level) / 10))
+    
+    $.getJSON("data/vocabulary.json", function(result){
+        const vocabs = result[room.category]
+        while (rdmVocab.length != 9){
+            let rdm = Math.floor((Math.random() * (vocabs.length - 1)));
+            if (!rdmVocab.includes(vocabs[rdm]) && parseInt(vocabs[rdm].level) <= minLevel+1){
+                rdmVocab.push(vocabs[rdm])
+            }
+        }
+        if (rdmVocab) {
+            refRooms.child(room.uid).child("tables").update({
+                "row-1-col-1": rdmVocab[0],
+                "row-1-col-2": rdmVocab[1],
+                "row-1-col-3": rdmVocab[2],
+                "row-2-col-1": rdmVocab[3],
+                "row-2-col-2": rdmVocab[4],
+                "row-2-col-3": rdmVocab[5],
+                "row-3-col-1": rdmVocab[6],
+                "row-3-col-2": rdmVocab[7],
+                "row-3-col-3": rdmVocab[8]
+            })
+        }
+    });
+    
+}

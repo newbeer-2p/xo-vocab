@@ -9,6 +9,7 @@ refRooms.on("value", data => {
         if (rInfo["user-x-id"] === currentUser.uid || rInfo["user-o-id"] === currentUser.uid){
             roomInfo = rInfo
             setUpGame(rInfo)
+            checkWinner(rInfo)
         }
     }
 })
@@ -22,103 +23,138 @@ function setUpGame(room){
             })
             $(`#game-info-user-${player} .game-user-name`).html(user.name)
             $(`#game-info-user-${player} .game-user-level`).html(`Level : ${user.level}`)
+
+            
+
+            if (room.winner && room.winner.toLowerCase() === player){
+                $("#game-info-turn").html(`Winner is <span>${user.name}</span>`)
+            }
+            else if (room.turn.toLowerCase() === player){
+                $("#game-info-turn span").html(user.name)
+            }
+
         })
     }
+    
+    $(`#game-info-category`).html(`Category : ${room.category}`)
 
-    $(`#game-info-category`).html(`[ ${room.category} ]`)
+    if (room.winner){
+        $(`#game-info-player`).html("")
+    }
+    else{
+        $(`#game-info-player span`).html(room.turn)
+    }
+    
+
+    for (const xoBox in room["tables"]){
+        const xo = room["tables"][xoBox]
+
+        if (xo.own){
+            $(`#${xoBox} img`).attr({
+                src: `./img/${xo.own}.png`
+            })
+        }
+        else{
+            $(`#${xoBox} img`).attr({
+                src: xo.img
+            })
+        }
+    }
 }
 
-document.querySelectorAll(".game-item div").forEach(el => {
+document.querySelectorAll(".game-item div img").forEach(el => {
     $(el).click(() => {
         if (event.target !== el){
             return;
         }
 
-        alert(event.target.parentNode.id)
+        const currentUser = firebase.auth().currentUser
+        if (currentUser.uid !== roomInfo[`user-${roomInfo.turn.toLowerCase()}-id`]){
+            alert("No!")
+            return
+        }
+
+        if (roomInfo.winner){
+            return
+        }
+
+        const pos = el.parentNode.parentNode.id
+
+        if (roomInfo["tables"][pos].own){
+            alert("No!")
+            return
+        }
+
+        $("#vocabModalLabel").val(pos)
+        $("#vocabModalLabel").html(pos)
+        $("#vocabModal").modal("show")
     })
 })
 
-function checkWinner(){
-    ref.child("game-1").once("value", snapshot => {
-        data = snapshot.val()
-        currentUser = firebase.auth().currentUser
-        turns = ["X", "O"]
+$("#btn-answer").click(() => {
+
+    // Test Tic Tac Toe
+    refRooms.child(roomInfo.uid).child("tables").child($('#vocabModalLabel').val()).update({
+        own : roomInfo.turn
+    })
+    refRooms.child(roomInfo.uid).update({
+        turn: roomInfo.turn === "X" ? "O" : "X" 
+    })
+    $("#vocabModal").modal("hide")
+})
+
+function checkWinner(room){
+    refRooms.child(room.uid).once("value", (data) => {
+        data = data.val()
 
         if (data.winner){
             return
         }
 
-        for (const turn of turns){
-            win1 = data["tables"]["row-1-col-1"] == turn && data["tables"]["row-1-col-2"] == turn && data["tables"]["row-1-col-3"] == turn 
-            win2 = data["tables"]["row-2-col-1"] == turn && data["tables"]["row-2-col-2"] == turn && data["tables"]["row-2-col-3"] == turn 
-            win3 = data["tables"]["row-3-col-1"] == turn && data["tables"]["row-3-col-2"] == turn && data["tables"]["row-3-col-3"] == turn 
-            win4 = data["tables"]["row-1-col-1"] == turn && data["tables"]["row-2-col-1"] == turn && data["tables"]["row-3-col-1"] == turn 
-            win5 = data["tables"]["row-1-col-2"] == turn && data["tables"]["row-2-col-2"] == turn && data["tables"]["row-3-col-2"] == turn 
-            win6 = data["tables"]["row-1-col-3"] == turn && data["tables"]["row-2-col-3"] == turn && data["tables"]["row-3-col-3"] == turn 
-            win7 = data["tables"]["row-1-col-1"] == turn && data["tables"]["row-2-col-2"] == turn && data["tables"]["row-3-col-3"] == turn 
-            win8 = data["tables"]["row-1-col-3"] == turn && data["tables"]["row-2-col-2"] == turn && data["tables"]["row-3-col-1"] == turn 
+        for (const turn of ["X", "O"]){
+            win1 = data["tables"]["row-1-col-1"]["own"] == turn && data["tables"]["row-1-col-2"]["own"] == turn && data["tables"]["row-1-col-3"]["own"] == turn 
+            win2 = data["tables"]["row-2-col-1"]["own"] == turn && data["tables"]["row-2-col-2"]["own"] == turn && data["tables"]["row-2-col-3"]["own"] == turn 
+            win3 = data["tables"]["row-3-col-1"]["own"] == turn && data["tables"]["row-3-col-2"]["own"] == turn && data["tables"]["row-3-col-3"]["own"] == turn 
+            win4 = data["tables"]["row-1-col-1"]["own"] == turn && data["tables"]["row-2-col-1"]["own"] == turn && data["tables"]["row-3-col-1"]["own"] == turn 
+            win5 = data["tables"]["row-1-col-2"]["own"] == turn && data["tables"]["row-2-col-2"]["own"] == turn && data["tables"]["row-3-col-2"]["own"] == turn 
+            win6 = data["tables"]["row-1-col-3"]["own"] == turn && data["tables"]["row-2-col-3"]["own"] == turn && data["tables"]["row-3-col-3"]["own"] == turn 
+            win7 = data["tables"]["row-1-col-1"]["own"] == turn && data["tables"]["row-2-col-2"]["own"] == turn && data["tables"]["row-3-col-3"]["own"] == turn 
+            win8 = data["tables"]["row-1-col-3"]["own"] == turn && data["tables"]["row-2-col-2"]["own"] == turn && data["tables"]["row-3-col-1"]["own"] == turn 
 
             if (win1 || win2 || win3 || win4 || win5 || win6 || win7 || win8){
-                ref.child("game-1").update({
+                refRooms.child(room.uid).update({
                     status: "finish",
                     winner: turn
                 })
-                id = data[`user-${turn.toLowerCase()}-id`]
-                refScore.once("value", snapshot => {
-                    scores = snapshot.val()
-                    if (!scores || !scores[id]){
-                        refScore.update({
-                            [id]: 1
-                        })
-                    }
-                    else{
-                        score = scores[id]
-                        refScore.update({
-                            [id]: parseInt(score) + 1
-                        })
-                    }
+                const idWin = data[`user-${turn.toLowerCase()}-id`]
+                const idLose = data[`user-${turn === "X" ? "o" : "x"}-id`]
+                refUsers.child(idWin).once("value", (data) => {
+                    user = data.val()
+                    refUsers.child(idWin).update({
+                        win: parseInt(user.win) + 1
+                    })
+                })
+                refUsers.child(idLose).once("value", (data) => {
+                    user = data.val()
+                    refUsers.child(idLose).update({
+                        lose: parseInt(user.lose) + 1
+                    })
                 })
 
                 return
             }
 
-            if (data["tables"]["row-1-col-1"] && data["tables"]["row-1-col-2"] && data["tables"]["row-1-col-3"] && data["tables"]["row-2-col-1"] && data["tables"]["row-2-col-2"] && data["tables"]["row-3-col-1"] && data["tables"]["row-3-col-2"] && data["tables"]["row-3-col-3"]){
-                ref.child("game-1").update({
+            if (data["tables"]["row-1-col-1"]["own"] && data["tables"]["row-1-col-2"]["own"] && data["tables"]["row-1-col-3"]["own"] && data["tables"]["row-2-col-1"]["own"] && data["tables"]["row-2-col-2"]["own"] && data["tables"]["row-3-col-1"]["own"] && data["tables"]["row-3-col-2"]["own"] && data["tables"]["row-3-col-3"]["own"]){
+                ref.child(room.uid).update({
                     status: "finish",
                     winner: "draw"
-                })
-
-                id1 = data[`user-x-id`]
-                id2 = data[`user-o-id`]
-
-                refScore.once("value", snapshot => {
-                    scores = snapshot.val()
-                    if (!scores || !scores[id1]){
-                        refScore.update({
-                            [id1]: 1
-                        })
-                    }
-                    else{
-                        score = scores[id1]
-                        refScore.update({
-                            [id1]: parseInt(score) + 1
-                        })
-                    }
-
-                    if (!scores || !scores[id2]){
-                        refScore.update({
-                            [id2]: 1
-                        })
-                    }
-                    else{
-                        score = scores[id2]
-                        refScore.update({
-                            [id2]: parseInt(score) + 1
-                        })
-                    }
-                    return
                 })
             }
         }
     })
 }
+
+$("#btn-exit").click(() => {
+    refRooms.child(roomInfo.uid).remove()
+    window.location.href = './lobby.html'
+})
