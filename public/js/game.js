@@ -24,12 +24,7 @@ function setUpGame(room){
             $(`#game-info-user-${player} .game-user-name`).html(user.name)
             $(`#game-info-user-${player} .game-user-level`).html(`Level : ${user.level}`)
 
-            
-
-            if (room.winner && room.winner.toLowerCase() === player){
-                $("#game-info-turn").html(`Winner is <span>${user.name}</span>`)
-            }
-            else if (room.turn.toLowerCase() === player){
+            if (!room.winner && room.turn.toLowerCase() === player){
                 $("#game-info-turn span").html(user.name)
             }
 
@@ -38,8 +33,16 @@ function setUpGame(room){
     
     $(`#game-info-category`).html(`Category : ${room.category}`)
 
-    if (room.winner){
+    if (room.winner === "draw"){
         $(`#game-info-player`).html("")
+        $("#game-info-turn").html(`<span> DRAW </span>`)
+    }
+    else if (room.winner){
+        $(`#game-info-player`).html("")
+        refUsers.child(room[`user-${room.winner.toLowerCase()}-id`]).once("value", (data) => {
+            const user = data.val()
+            $("#game-info-turn").html(`Winner is <span>${user.name}</span>`)
+        })
     }
     else{
         $(`#game-info-player span`).html(room.turn)
@@ -140,12 +143,11 @@ function checkWinner(room){
                         lose: parseInt(user.lose) + 1
                     })
                 })
-
                 return
             }
 
-            if (data["tables"]["row-1-col-1"]["own"] && data["tables"]["row-1-col-2"]["own"] && data["tables"]["row-1-col-3"]["own"] && data["tables"]["row-2-col-1"]["own"] && data["tables"]["row-2-col-2"]["own"] && data["tables"]["row-3-col-1"]["own"] && data["tables"]["row-3-col-2"]["own"] && data["tables"]["row-3-col-3"]["own"]){
-                ref.child(room.uid).update({
+            if (data["tables"]["row-1-col-1"]["own"] && data["tables"]["row-1-col-2"]["own"] && data["tables"]["row-1-col-3"]["own"] && data["tables"]["row-2-col-1"]["own"] && data["tables"]["row-2-col-2"]["own"] && data["tables"]["row-2-col-3"]["own"] && data["tables"]["row-3-col-1"]["own"] && data["tables"]["row-3-col-2"]["own"] && data["tables"]["row-3-col-3"]["own"]){
+                refRooms.child(room.uid).update({
                     status: "finish",
                     winner: "draw"
                 })
