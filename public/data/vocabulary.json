@@ -288,5 +288,171 @@
             "img": "./img/marian_plum.png",
             "level": 2
         }
+    ],
+    "hobbies": [
+        {
+            "name": "knitting",
+            "img": "./img/knitting.png"
+        },
+        {
+            "name": "photography",
+            "img": "./img/photography.png"
+        },
+        {
+            "name": "ballet",
+            "img": "./img/ballet.png"
+        },
+        {
+            "name": "acting",
+            "img": "./img/acting.png"
+        },
+        {
+            "name": "juggling",
+            "img": "./img/juggling.png"
+        },
+        {
+            "name": "banjo",
+            "img": "./img/banjo.png"
+        },
+        {
+            "name": "guitar",
+            "img": "./img/guitar.png"
+        },
+        {
+            "name": "drum",
+            "img": "./img/drum.png"
+        },
+        {
+            "name": "piano",
+            "img": "./img/piano.png"
+        },
+        {
+            "name": "violin",
+            "img": "./img/violin.png"
+        },
+        {
+            "name": "singing",
+            "img": "./img/singing.png"
+        },
+        {
+            "name": "cooking",
+            "img": "./img/cooking.png"
+        },
+        {
+            "name": "grilling",
+            "img": "./img/grilling.png"
+        },
+        {
+            "name": "billiard",
+            "img": "./img/billiard.png"
+        },
+        {
+            "name": "chess",
+            "img": "./img/chess.png"
+        },
+        {
+            "name": "domino",
+            "img": "./img/domino.png"
+        },
+        {
+            "name": "poker",
+            "img": "./img/poker.png"
+        },
+        {
+            "name": "trumpet",
+            "img": "./img/trumpet.png"
+        },
+        {
+            "name": "trombone",
+            "img": "./img/trombone.png"
+        },
+        {
+            "name": "archery",
+            "img": "./img/archery.png"
+        },
+        {
+            "name": "bowling",
+            "img": "./img/bowling.png"
+        },
+        {
+            "name": "cycling",
+            "img": "./img/cycling.png"
+        },
+        {
+            "name": "diving",
+            "img": "./img/diving.png"
+        },
+        {
+            "name": "camping",
+            "img": "./img/camping.png"
+        },
+        {
+            "name": "fishing",
+            "img": "./img/fishing.png"
+        },
+        {
+            "name": "taekwondo",
+            "img": "./img/taekwondo.png"
+        },
+        {
+            "name": "canoe",
+            "img": "./img/canoe.png"
+        },
+        {
+            "name": "karate",
+            "img": "./img/karate.png"
+        },
+        {
+            "name": "fencing",
+            "img": "./img/fencing.png"
+        },
+        {
+            "name": "tennis",
+            "img": "./img/tennis.png"
+        },
+        {
+            "name": "squash",
+            "img": "./img/squash.png"
+        },
+        {
+            "name": "badminton",
+            "img": "./img/badminton.png"
+        },
+        {
+            "name": "sailing",
+            "img": "./img/sailing.png"
+        },
+        {
+            "name": "foosball",
+            "img": "./img/foosball.png"
+        },
+        {
+            "name": "jigsaw",
+            "img": "./img/jigsaw.png"
+        },
+        {
+            "name": "yoga",
+            "img": "./img/yoga.png"
+        },
+        {
+            "name": "gymnastics",
+            "img": "./img/gymnastics.png"
+        },
+        {
+            "name": "golf",
+            "img": "./img/golf.png"
+        },
+        {
+            "name": "baseball",
+            "img": "./img/baseball.png"
+        },
+        {
+            "name": "surfing",
+            "img": "./img/surfing.png"
+        },
+        {
+            "name": "boxing",
+            "img": "./img/boxing.png"
+        }
     ]
 }
