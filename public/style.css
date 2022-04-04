@@ -195,6 +195,7 @@ header{
     display: flex;
     border-bottom: 2px solid black;
     padding: 0;
+    margin: 0;
 }
 #leaderboard-list ul li{
     flex: 1;
@@ -220,7 +221,10 @@ p {
   }
   
 .leaderboard-nav ul li{
-    flex-grow: 1;
+    flex: 2;
+}
+.leaderboard-nav ul li.rank{
+    flex: 1;
 }
 .leaderboard-nav ul li p {
     color: white;
@@ -231,9 +235,17 @@ p {
     width: 100%;
     transition: all 0.5s;
 }
-.text-al-center{
+.leaderboard-rank{
     text-align: center;
 }
+.leaderboard-player{
+    text-align: center;
+}
+.leaderboard-win{
+    text-align: center;
+}
+
+
 .leader{
     list-style-type: none;
     display: flex;
