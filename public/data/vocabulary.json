@@ -454,5 +454,207 @@
             "name": "boxing",
             "img": "./img/boxing.png"
         }
+    ],
+    "animals": [
+        {
+            "name": "ant",
+            "image": "./img/ant.png"
+        },
+        {
+            "name": "alligator ",
+            "image": "./img/alligator.png"
+        },
+        {
+            "name": "bat",
+            "image": "./img/bat.png"
+        },
+        {
+            "name": "bird",
+            "image": "./img/bird.png"
+        },
+        {
+            "name": "bear",
+            "image": "./img/bear.png"
+        },
+        {
+            "name": "bee",
+            "image": "./img/bee.png"
+        },
+        {
+            "name": "buffalo",
+            "image": "./img/buffalo.png"
+        },
+        {
+            "name": "butterfly",
+            "image": "./img/butterfly"
+        },
+        {
+            "name": "cat",
+            "image": "./img/cat.png"
+        },
+        {
+            "name": "cow",
+            "image": "./img/cow.png"
+        },
+        {
+            "name": "chicken",
+            "image": "./img/chicken.png"
+        },
+        {
+            "name": "crab",
+            "image": "./img/crab.png"
+        },
+        {
+            "name": "cobra",
+            "image": "./img/cobra.png"
+        },
+        {
+            "name": "crocodile",
+            "image": "./img/crocodile.png"
+        },
+        {
+            "name": "deer",
+            "image": "./img/deer.png"
+        },
+        {
+            "name": "donkey",
+            "image": "./img/donkey.png"
+        },
+        {
+            "name": "dog",
+            "image": "./img/dog.png"
+        },
+        {
+            "name": "duck",
+            "image": "./img/duck.png"
+        },
+        {
+            "name": "elephant",
+            "image": "./img/elephant.png"
+        },
+        {
+            "name": "earthworm",
+            "image": "./img/earthworm.png"
+        },
+        {
+            "name": "dragonfly",
+            "image": "./img/dragonfly.png"
+        },
+        {
+            "name": "fox",
+            "image": "./img/fox.png"
+        },
+        {
+            "name": "fly",
+            "image": "./img/fly.png"
+        },
+        {
+            "name": "fish",
+            "image": "./img/fish.png"
+        },
+        {
+            "name": "goat",
+            "image": "./img/goat.png"
+        },
+        {
+            "name": "goose",
+            "image": "./img/goose.png"
+        },
+        {
+            "name": "gorilla",
+            "image": "./img/gorilla.png"
+        },
+        {
+            "name": "giraffe",
+            "image": "./img/giraffe.png"
+        },
+        {
+            "name": "goldfish",
+            "image": "./img/goldfish.png"
+        },
+        {
+            "name": "hawk",
+            "image": "./img/hawk.png"
+        },
+        {
+            "name": "hippopotamus",
+            "image": "./img/hippopotamus.png"
+        },
+        {
+            "name": "horse",
+            "image": "./img/house.png"
+        },
+        {
+            "name": "kangaroo",
+            "image": "./img/kangaroo.png"
+        },
+        {
+            "name": "koala",
+            "image": "./img/koala.png"
+        },
+        {
+            "name": "lion",
+            "image": "./img/lion.png"
+        },
+        {
+            "name": "lizard",
+            "image": "./img/lizard.png"
+        },
+        {
+            "name": "monkey",
+            "image": "./img/monkey.png"
+        },
+        {
+            "name": "mosquito",
+            "image": "./img/mosquito.png"
+        },
+        {
+            "name": "panda",
+            "image": "./img/panda.png"
+        },
+        {
+            "name": "pig",
+            "image": "./img/pig.png"
+        },
+        {
+            "name": "rabbit",
+            "image": "./img/rabbit.png"
+        },
+        {
+            "name": "sheep",
+            "image": "./img/sheep.png"
+        },
+        {
+            "name": "snake",
+            "image": "./img/snake.png"
+        },
+        {
+            "name": "spider",
+            "image": "./img/spider.png"
+        },
+        {
+            "name": "shark",
+            "image": "./img/shark.png"
+        },
+        {
+            "name": "turkey",
+            "image": "./img/turkey.png"
+        },
+        {
+            "name": "tiger",
+            "image": "./img/tiger.png"
+        },
+        {
+            "name": "wolf",
+            "image": "./img/wolf.png"
+        },
+        {
+            "name": "whale",
+            "image": "./img/whale.png"
+        },
+        {
+            "name": "zebra",
+            "image": "./img/zebra.png"
+        }
     ]
 }
