@@ -24,7 +24,49 @@ firebase.auth().onAuthStateChanged((user) => {
     if (user){
         refUsers.child(user.uid).once("value", (data) => {
             const userProfile = data.val()
-            $("#profile-name").html(`Hello, ${userProfile.name}`)
+            $("#profile-name span").html(userProfile.name)
+            console.log(window.location.href);
+        })
+
+        refOnline.once("value", (data) => {
+            data = data.val()
+            
+            if (!data || !data[user.uid]){
+                refOnline.child(user.uid).update({
+                    status: "online"
+                })
+            }
+        })
+
+        $(".logged-out").each((i, el) => {
+            $(el).hide()
+        })
+        $(".logged-in").each((i, el) => {
+            $(el).show()
         })
     }
+    else{
+        $(".logged-out").each((i, el) => {
+            $(el).show()
+        })
+        $(".logged-in").each((i, el) => {
+            $(el).hide()
+        })
+    }
+})
+
+const refOnline = firebase.database().ref("onlines")
+
+window.onbeforeunload = (event) => {
+    const currentUser = firebase.auth().currentUser
+    refOnline.once("value", (data) => {
+        data = data.val()
+        if (data[currentUser.uid]){
+            refOnline.child(currentUser.uid).remove()
+        }
+    })
+}
+
+refOnline.on("value", (data) => {
+    $("#user-online span").html(data.numChildren())
 })

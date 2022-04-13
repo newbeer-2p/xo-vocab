@@ -21,8 +21,8 @@
         <div class="nvbar-logo"><img src="./img/logo2.png" height="100%"></div>
         <div class="nvbar-menu">
             <div class="nvbar-menu-item nvbar-text">
-                <div id="profile-name">Hello, Banana</div>
-                <div id="user-online"><i class="bi bi-circle-fill online-icon"></i> Online : <span id="number-online">10</span></div>
+                <div id="profile-name">Hello, <span>Guest</span></div>
+                <div id="user-online"><i class="bi bi-circle-fill online-icon"></i> Online : <span>-</span></div>
             </div>
             <div class="nvbar-menu-item">
                 <button id="btnLogout"><i class="bi bi-box-arrow-right"></i></button>
@@ -35,9 +35,12 @@
     </header>
     <div class="container" id="homepge">
       <div class="homeimg"><img src="./img/logo1.png" height="100%"></div>
-      <div class="loginbox"><button type="button" id="btnLS" class="btn" data-bs-toggle="modal" data-bs-target="#modal-login">Login</button></div>
-      <div class="nmtext"><p>or</p></div>
-      <div class="signupbox"><button type="button" id="btnLS" class="btn" data-bs-toggle="modal" data-bs-target="#modal-signup">register</button></div>
+      <div class="loginbox logged-out"><button type="button" id="btnLS" class="btn" data-bs-toggle="modal" data-bs-target="#modal-login">Login</button></div>
+      <div class="nmtext logged-out"><p>or</p></div>
+      <div class="signupbox logged-out"><button type="button" id="btnLS" class="btn" data-bs-toggle="modal" data-bs-target="#modal-signup">Sign Up</button></div>
+      <div class="logged-in" style="display: none">
+        <button type="button" class="btn"  id="btnLS"onclick="window.location.href = './lobby.html'">Go to Lobby!</button>
+      </div>
     </div>
     <!-- Modal Login -->
     <div class="modal" id="modal-login" tabindex="-1">
