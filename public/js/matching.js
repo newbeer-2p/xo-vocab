@@ -172,6 +172,7 @@ function updateFindMatchContent(cmd, room={}){
     else if (cmd === "found") {
         document.querySelectorAll(".join-default").forEach((el) => {$(el).hide()})
         document.querySelectorAll(".join-finding").forEach((el) => {$(el).show()})
+        $("#btn-cancel-join").hide()
         $("#inputCategory").val(room.category)
         $("#inputCategory").attr({disabled: "disabled"})
         $("#btn-join").html(`Starting in... 5`)
@@ -185,7 +186,7 @@ function updateFindMatchContent(cmd, room={}){
                 if (!room["tables"]){
                     refRooms.child(room.uid).update({
                         turn: "X",
-                        time: 0
+                        time: 59
                     })
                     randomVocab(room, user1, user2)
                 }

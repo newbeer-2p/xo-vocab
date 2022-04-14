@@ -8,6 +8,11 @@ refRooms.on("value", data => {
         const rInfo = data[d]
         if (rInfo["user-x-id"] === currentUser.uid || rInfo["user-o-id"] === currentUser.uid){
             roomInfo = rInfo
+            if (rInfo.status == "found"){
+                refRooms.child(rInfo.uid).update({
+                    status: "start"
+                })
+            }
             setUpGame(rInfo)
             checkWinner(rInfo)
         }
@@ -15,6 +20,7 @@ refRooms.on("value", data => {
 })
 
 function setUpGame(room){
+    const currentUser = firebase.auth().currentUser
     for (const player of ["x", "o"]){
         refUsers.child(room[`user-${player}-id`]).once("value", data => {
             const user = data.val()
@@ -25,17 +31,19 @@ function setUpGame(room){
             $(`#game-info-user-${player} .game-user-level`).html(`Level : ${user.level}`)
 
             if (!room.winner && room.turn.toLowerCase() === player){
-                $("#game-info-turn span").html(user.name)
+                $("#game-info-turn span").html(room[`user-${room.turn.toLowerCase()}-id`] == currentUser.uid ? "YOU!" : user.name)
             }
 
         })
     }
     
     $(`#game-info-category`).html(`Category : ${room.category}`)
+    $(`#game-info-time span`).html("&nbsp;" + room.time)
 
     if (room.winner === "draw"){
         $(`#game-info-player`).html("")
         $("#game-info-turn").html(`<span> DRAW </span>`)
+        finishGame()
     }
     else if (room.winner){
         $(`#game-info-player`).html("")
@@ -43,6 +51,7 @@ function setUpGame(room){
             const user = data.val()
             $("#game-info-turn").html(`Winner is <span>${user.name}</span>`)
         })
+        finishGame()
     }
     else{
         $(`#game-info-player span`).html(room.turn)
@@ -112,12 +121,14 @@ document.querySelectorAll(".game-item div img").forEach(el => {
 var test = ""
 $("#btn-answer").click(() => {
     console.log(test)
-    // Test Tic Tac Toe
+    
+    // When click and answer TRUE
     refRooms.child(roomInfo.uid).child("tables").child($('#vocabModalLabel').val()).update({
         own : roomInfo.turn
     })
     refRooms.child(roomInfo.uid).update({
-        turn: roomInfo.turn === "X" ? "O" : "X" 
+        turn: roomInfo.turn === "X" ? "O" : "X",
+        time: 59
     })
     $("#vocabModal").modal("hide")
 })
@@ -172,7 +183,91 @@ function checkWinner(room){
     })
 }
 
+let countTime = setInterval(() => {
+    const currentUser = firebase.auth().currentUser
+    if (roomInfo.uid){
+        refRooms.child(roomInfo.uid).once("value", (data) => {
+            data = data.val()
+            if (data[`user-${data.turn.toLowerCase()}-id`] == currentUser.uid && data.status == "start")
+            if (parseInt(data.time) - 1 >= 0) {
+                refRooms.child(roomInfo.uid).update({
+                    time: parseInt(data.time) - 1
+                })
+            }
+            else{
+                refRooms.child(roomInfo.uid).update({
+                    time: 59,
+                    turn: data.turn == "X" ? "O" : "X"
+                })
+            }
+        })
+    }
+}, 1000)
+
 $("#btn-exit").click(() => {
     refRooms.child(roomInfo.uid).remove()
     window.location.href = './lobby.html'
 })
+
+$("#btn-finish").click(finishGame)
+
+function finishGame(){
+    clearInterval(countTime)
+    refRooms.child(roomInfo.uid).update({
+        status: "finish"
+    })
+    $("#finishModal").modal({
+        backdrop: "static"
+    })
+    $("#finishModal").modal("show")
+
+    const currentUser = firebase.auth().currentUser
+    for (const player of ["x", "o"])
+    {
+        refUsers.child(roomInfo[`user-${player}-id`]).once("value", (data) => {
+            const userProfile = data.val()
+            let addExp = 10;
+            if (currentUser.uid == roomInfo[`user-${player}-id`]){
+                if (roomInfo.winner == "draw"){
+                    $("#whoWin").html("Draw 😆")
+                    $("#desGameOver").html("Good Job, " + userProfile.name)
+                    addExp = 15
+                }
+                else if (currentUser.uid == roomInfo[`user-${roomInfo.winner.toLowerCase()}-id`]){
+                    addExp = 20
+                    console.log(userProfile.name);
+                    $("#whoWin").html("You Win 😁")
+                    $("#desGameOver").html("Congratulations, " + userProfile.name)
+                }
+                else {
+                    $("#whoWin").html("You Lose 😥")
+                    $("#desGameOver").html("Nice Try, " + userProfile.name)
+                }
+                
+                // แนะนำให้ใส่เพิ่ม exp ตรงนี้
+                
+
+                $("#profile-exp-progress-bar").attr({
+                    style: `--exp-percent: calc(${(userProfile.exp)} / 50 * 100%)`
+                })
+                $("#profile-next-to span").html(parseInt(userProfile.level) + 1)
+                $("#profile-exp-percent").html(`(+ ${addExp}) <span>${userProfile.exp + addExp}</span> / 50`)
+                setTimeout(() => {
+                    $("#profile-exp-progress-bar").attr({
+                        style: `--exp-percent: calc(${(userProfile.exp + addExp)} / 50 * 100%)`
+                    })
+                    if (Math.floor((parseInt(userProfile.exp) + addExp) / 50)){
+                        setTimeout(() => {
+                            levelUp(userProfile)
+                        }, 1000)
+                    }
+                }, 1000)
+            }
+
+        })
+    }
+}
+
+function levelUp(userProfile){
+    console.log("Level UP!, " + userProfile.name);
+}

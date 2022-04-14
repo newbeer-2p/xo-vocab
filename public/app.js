@@ -13,11 +13,13 @@ firebase.initializeApp(firebaseConfig);
 const refUsers = firebase.database().ref("UserList")
 
 const btnLogout = document.querySelector("#btnLogout");
-btnLogout.addEventListener('click', () => {
-    firebase.auth().signOut()
-    console.log('Logout completed.');
-    window.location.href = "./"
-})
+if (btnLogout){
+    btnLogout.addEventListener('click', () => {
+        firebase.auth().signOut()
+        console.log('Logout completed.');
+        window.location.href = "./"
+    })
+}
 
 firebase.auth().onAuthStateChanged((user) => {
     console.log('User: ', user);
@@ -25,7 +27,6 @@ firebase.auth().onAuthStateChanged((user) => {
         refUsers.child(user.uid).once("value", (data) => {
             const userProfile = data.val()
             $("#profile-name span").html(userProfile.name)
-            console.log(window.location.href);
         })
 
         refOnline.once("value", (data) => {
