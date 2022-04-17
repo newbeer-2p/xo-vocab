@@ -170,40 +170,43 @@ function updateFindMatchContent(cmd, room={}){
         $(".modal-text").html(`Waiting for Player... (${room.time ?? 0})`)
     }
     else if (cmd === "found") {
-        document.querySelectorAll(".join-default").forEach((el) => {$(el).hide()})
-        document.querySelectorAll(".join-finding").forEach((el) => {$(el).show()})
-        $("#btn-cancel-join").hide()
-        $("#inputCategory").val(room.category)
-        $("#inputCategory").attr({disabled: "disabled"})
-        $("#btn-join").html(`Starting in... 5`)
-
-        refUsers.child(room["user-x-id"]).once("value", (data1) => {
-            const user1 = data1.val()
-            refUsers.child(room["user-o-id"]).once("value", (data2) => {
-                const user2 = data2.val()
-                $(".modal-text").html(`${user1.name} vs ${user2.name}<br><span id="countStart">Starting in... 5</span>`)
-                
-                if (!room["tables"]){
-                    refRooms.child(room.uid).update({
-                        turn: "X",
-                        time: 59
-                    })
-                    randomVocab(room, user1, user2)
-                }
+        const currentUser = firebase.auth().currentUser
+        if (currentUser.uid == room["user-x-id"] || currentUser.uid == room["user-o-id"]){
+            document.querySelectorAll(".join-default").forEach((el) => {$(el).hide()})
+            document.querySelectorAll(".join-finding").forEach((el) => {$(el).show()})
+            $("#btn-cancel-join").hide()
+            $("#inputCategory").val(room.category)
+            $("#inputCategory").attr({disabled: "disabled"})
+            $("#btn-join").html(`Starting in... 5`)
+    
+            refUsers.child(room["user-x-id"]).once("value", (data1) => {
+                const user1 = data1.val()
+                refUsers.child(room["user-o-id"]).once("value", (data2) => {
+                    const user2 = data2.val()
+                    $(".modal-text").html(`${user1.name} vs ${user2.name}<br><span id="countStart">Starting in... 5</span>`)
+                    
+                    if (!room["tables"]){
+                        refRooms.child(room.uid).update({
+                            turn: "X",
+                            time: 59
+                        })
+                        randomVocab(room, user1, user2)
+                    }
+                })
             })
-        })
-
-        let count = 5;
-
-        const countGoToRoom = setInterval(() => {
-            count--;
-            $("#countStart").html(`Starting in... ${count}`)
-            $("#btn-join").html(`Starting in... ${count}`)
-            if (count == 0){
-                clearInterval(countGoToRoom)
-                window.location.href = "./game.html"
-            }
-        }, 1000)
+    
+            let count = 5;
+    
+            const countGoToRoom = setInterval(() => {
+                count--;
+                $("#countStart").html(`Starting in... ${count}`)
+                $("#btn-join").html(`Starting in... ${count}`)
+                if (count == 0){
+                    clearInterval(countGoToRoom)
+                    window.location.href = "./game.html"
+                }
+            }, 1000)
+        }
     }
     else {
         document.querySelectorAll(".join-default").forEach((el) => {$(el).show()})
@@ -224,15 +227,14 @@ refRooms.on("value", (data) => {
             refRooms.child(d).remove()
         }
 
-        if (objData["user-x-id"] && objData["user-o-id"]){
-            refRooms.child(d).update({
-                status: "found"
-            })
+        if (!objData.status && objData["user-x-id"] && objData["user-o-id"]){
+            if (!objData.status){
+                refRooms.child(d).update({
+                    status: "found"
+                })
+            }
             updateFindMatchContent("found", objData)
             return
-        }
-        else{
-            refRooms.child(d).child("status").remove()
         }
 
         if (!objData.uid){
@@ -241,9 +243,12 @@ refRooms.on("value", (data) => {
             })
         }
 
-        if (currentUser.uid === objData["user-x-id"] || currentUser.uid === objData["user-o-id"]){
+        if (!objData.status && (currentUser.uid === objData["user-x-id"] || currentUser.uid === objData["user-o-id"])){
             updateFindMatchContent("finding", objData)
             return
+        }
+        else if (objData.status == "found" || objData.status == "start"){
+            updateFindMatchContent("found", objData)
         }
         else{
             updateFindMatchContent("none")
