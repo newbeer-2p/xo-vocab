@@ -33,8 +33,11 @@ firebase.auth().onAuthStateChanged((user) => {
             data = data.val()
             
             if (!data || !data[user.uid]){
-                refOnline.child(user.uid).update({
-                    status: "online"
+                refUsers.child(user.uid).once("value", (data) => {
+                    const user = data.val()
+                    refOnline.child(user.uid).update({
+                        name: user.name
+                    })
                 })
             }
         })

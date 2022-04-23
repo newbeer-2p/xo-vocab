@@ -90,7 +90,10 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="vocabModalLabel">Row-0-Col-0</h5>
+                    <div class="modal-title" id="vocabModalLabel">
+                        <div class="vocabModal-table fs-5">Row-0-Col-0</div>
+                        <div class="vocabModal-time fs-5">Time : 59</div>
+                    </div>
                     <button type="button" class="btn-close btnClose" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -144,11 +147,20 @@
                     <div id="level-name" class="text-center fs-1">Congratulations, <span>-</span></div>
                     <div class="text-center fs-3">You are on Level</div>
                     <div id="level-up-number" class="text-center">-</div>
-                    
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="messageModalLabel">XO Vocab SAYS :</h5>
+            </div>
+            <div class="modal-body fs-1 text-center"></div>
+        </div>
+      </div>
 
   <script src="./app.js"></script>
   <script src="./js/game.js"></script>

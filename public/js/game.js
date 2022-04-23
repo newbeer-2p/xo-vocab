@@ -56,6 +56,7 @@ function setUpGame(room){
     else{
         $(`#game-info-player span`).html(room.turn)
     }
+    $("#vocabModalLabel .vocabModal-time").html(`Time : ${room.time}`)
     
 
     for (const xoBox in room["tables"]){
@@ -82,7 +83,7 @@ document.querySelectorAll(".game-item div img").forEach(el => {
 
         const currentUser = firebase.auth().currentUser
         if (currentUser.uid !== roomInfo[`user-${roomInfo.turn.toLowerCase()}-id`]){
-            alert("No!")
+            showDialog("Not your turn!")
             return
         }
 
@@ -93,12 +94,12 @@ document.querySelectorAll(".game-item div img").forEach(el => {
         const pos = el.parentNode.parentNode.id
 
         if (roomInfo["tables"][pos].own){
-            alert("No!")
+            showDialog("Change Table!")
             return
         }
 
         $("#vocabModalLabel").val(pos)
-        $("#vocabModalLabel").html(pos)
+        $("#vocabModalLabel .vocabModal-table").html(pos)
         const img = document.getElementById('imganswer')
         img.src = el.src
         var ansfill = document.getElementById('ansfill')
@@ -195,6 +196,7 @@ let countTime = setInterval(() => {
                 })
             }
             else{
+                $("#vocabModal").modal("hide")
                 refRooms.child(roomInfo.uid).update({
                     time: 59,
                     turn: data.turn == "X" ? "O" : "X"
@@ -270,4 +272,12 @@ function finishGame(){
 
 function levelUp(userProfile){
     console.log("Level UP!, " + userProfile.name);
+}
+
+function showDialog(message){
+    $("#messageModal .modal-body").html(message)
+    $("#messageModal").modal("show")
+    setTimeout(() => {
+        $("#messageModal").modal("hide")
+    }, 1000)
 }

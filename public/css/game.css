@@ -149,3 +149,13 @@
 #level-up-number{
     font-size: 150px;
 }
+
+#vocabModalLabel{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#vocabModalLabel .vocabModal-time{
+    margin-right: 10px;
+}
