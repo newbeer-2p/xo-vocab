@@ -541,203 +541,253 @@
     "animals": [
         {
             "name": "ant",
-            "image": "./img/ant.png"
+            "image": "./img/animals/ant.png",
+            "level": 1
         },
         {
             "name": "alligator ",
-            "image": "./img/alligator.png"
+            "image": "./img/animals/alligator.png",
+            "level": 3
         },
         {
             "name": "bat",
-            "image": "./img/bat.png"
+            "image": "./img/animals/bat.png",
+            "level": 1
         },
         {
             "name": "bird",
-            "image": "./img/bird.png"
+            "image": "./img/animals/bird.png",
+            "level": 1
         },
         {
             "name": "bear",
-            "image": "./img/bear.png"
+            "image": "./img/animals/bear.png",
+            "level": 1
         },
         {
             "name": "bee",
-            "image": "./img/bee.png"
+            "image": "./img/animals/bee.png",
+            "level": 1
         },
         {
             "name": "buffalo",
-            "image": "./img/buffalo.png"
+            "image": "./img/animals/buffalo.png",
+            "level": 3
         },
         {
             "name": "butterfly",
-            "image": "./img/butterfly"
+            "image": "./img/animals/butterfly",
+            "level": 3
         },
         {
             "name": "cat",
-            "image": "./img/cat.png"
+            "image": "./img/animals/cat.png",
+            "level": 1
         },
         {
             "name": "cow",
-            "image": "./img/cow.png"
+            "image": "./img/animals/cow.png",
+            "level": 1
         },
         {
             "name": "chicken",
-            "image": "./img/chicken.png"
+            "image": "./img/animals/chicken.png",
+            "level": 2
         },
         {
             "name": "crab",
-            "image": "./img/crab.png"
+            "image": "./img/animals/crab.png",
+            "level": 1
         },
         {
             "name": "cobra",
-            "image": "./img/cobra.png"
+            "image": "./img/animals/cobra.png",
+            "level": 2
         },
         {
             "name": "crocodile",
-            "image": "./img/crocodile.png"
+            "image": "./img/animals/crocodile.png",
+            "level": 3
         },
         {
             "name": "deer",
-            "image": "./img/deer.png"
+            "image": "./img/animals/deer.png",
+            "level": 1
         },
         {
             "name": "donkey",
-            "image": "./img/donkey.png"
+            "image": "./img/animals/donkey.png",
+            "level": 2
         },
         {
             "name": "dog",
-            "image": "./img/dog.png"
+            "image": "./img/animals/dog.png",
+            "level": 1
         },
         {
             "name": "duck",
-            "image": "./img/duck.png"
+            "image": "./img/animals/duck.png",
+            "level": 1
         },
         {
             "name": "elephant",
-            "image": "./img/elephant.png"
+            "image": "./img/animals/elephant.png",
+            "level": 2
         },
         {
             "name": "earthworm",
-            "image": "./img/earthworm.png"
+            "image": "./img/animals/earthworm.png",
+            "level": 3
         },
         {
             "name": "dragonfly",
-            "image": "./img/dragonfly.png"
+            "image": "./img/animals/dragonfly.png",
+            "level": 2
         },
         {
             "name": "fox",
-            "image": "./img/fox.png"
+            "image": "./img/animals/fox.png",
+            "level": 1
         },
         {
             "name": "fly",
-            "image": "./img/fly.png"
+            "image": "./img/animals/fly.png",
+            "level": 1
         },
         {
             "name": "fish",
-            "image": "./img/fish.png"
+            "image": "./img/animals/fish.png",
+            "level": 1
         },
         {
             "name": "goat",
-            "image": "./img/goat.png"
+            "image": "./img/animals/goat.png",
+            "level": 1
         },
         {
             "name": "goose",
-            "image": "./img/goose.png"
+            "image": "./img/animals/goose.png",
+            "level": 2
         },
         {
             "name": "gorilla",
-            "image": "./img/gorilla.png"
+            "image": "./img/animals/gorilla.png",
+            "level": 2
         },
         {
             "name": "giraffe",
-            "image": "./img/giraffe.png"
+            "image": "./img/animals/giraffe.png",
+            "level": 3
         },
         {
             "name": "goldfish",
-            "image": "./img/goldfish.png"
+            "image": "./img/animals/goldfish.png",
+            "level": 2
         },
         {
             "name": "hawk",
-            "image": "./img/hawk.png"
+            "image": "./img/animals/hawk.png",
+            "level": 1
         },
         {
             "name": "hippopotamus",
-            "image": "./img/hippopotamus.png"
+            "image": "./img/animals/hippopotamus.png",
+            "level": 3
         },
         {
             "name": "horse",
-            "image": "./img/horse.png"
+            "image": "./img/animals/house.png",
+            "level": 2
         },
         {
             "name": "kangaroo",
-            "image": "./img/kangaroo.png"
+            "image": "./img/animals/kangaroo.png",
+            "level": 2
         },
         {
             "name": "koala",
-            "image": "./img/koala.png"
+            "image": "./img/animals/koala.png",
+            "level": 2
         },
         {
             "name": "lion",
-            "image": "./img/lion.png"
+            "image": "./img/animals/lion.png",
+            "level": 1
         },
         {
             "name": "lizard",
-            "image": "./img/lizard.png"
+            "image": "./img/animals/lizard.png",
+            "level": 1
         },
         {
             "name": "monkey",
-            "image": "./img/monkey.png"
+            "image": "./img/animals/monkey.png",
+            "level": 2
         },
         {
             "name": "mosquito",
-            "image": "./img/mosquito.png"
+            "image": "./img/animals/mosquito.png",
+            "level": 3
         },
         {
             "name": "panda",
-            "image": "./img/panda.png"
+            "image": "./img/animals/panda.png",
+            "level": 1
         },
         {
             "name": "pig",
-            "image": "./img/pig.png"
+            "image": "./img/animals/pig.png",
+            "level": 1
         },
         {
             "name": "rabbit",
-            "image": "./img/rabbit.png"
+            "image": "./img/animals/rabbit.png",
+            "level": 1
         },
         {
             "name": "sheep",
-            "image": "./img/sheep.png"
+            "image": "./img/animals/sheep.png",
+            "level": 1
         },
         {
             "name": "snake",
-            "image": "./img/snake.png"
+            "image": "./img/animals/snake.png",
+            "level": 1
         },
         {
             "name": "spider",
-            "image": "./img/spider.png"
+            "image": "./img/animals/spider.png",
+            "level": 1
         },
         {
             "name": "shark",
-            "image": "./img/shark.png"
+            "image": "./img/animals/shark.png",
+            "level": 1
         },
         {
             "name": "turkey",
-            "image": "./img/turkey.png"
+            "image": "./img/animals/turkey.png",
+            "level": 1
         },
         {
             "name": "tiger",
-            "image": "./img/tiger.png"
+            "image": "./img/animals/tiger.png",
+            "level": 1
         },
         {
             "name": "wolf",
-            "image": "./img/wolf.png"
+            "image": "./img/animals/wolf.png",
+            "level": 1
         },
         {
             "name": "whale",
-            "image": "./img/whale.png"
+            "image": "./img/animals/whale.png",
+            "level": 1
         },
         {
             "name": "zebra",
-            "image": "./img/zebra.png"
+            "image": "./img/animals/zebra.png",
+            "level": 2
         }
     ]
 }

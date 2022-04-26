@@ -245,7 +245,11 @@ function finishGame(){
                     $("#whoWin").html("You Lose 😥")
                     $("#desGameOver").html("Nice Try, " + userProfile.name)
                 }
-                
+                refUsers.child(currentUser.uid).once("value", (data) => {
+                    user = data.val()
+                    refUsers.child(currentUser.uid).update({
+                        exp: parseInt(user.exp) + addExp
+                    })
                 // แนะนำให้ใส่เพิ่ม exp ตรงนี้
                 
 

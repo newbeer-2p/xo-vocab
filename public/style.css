@@ -177,6 +177,8 @@ header{
     width: 40vw;
     height: calc(100vh - 75px);
     margin-right: 7px;
+    display: flex;
+    flex-direction: column;
 }
 #leaderboard-header{
     font-size: 3vh;
@@ -186,7 +188,6 @@ header{
 }
 #leaderboard-list{
     display: flex;
-    flex-grow: 1;
     flex-direction: column-reverse;
     border-bottom: 2px solid black;
 }
