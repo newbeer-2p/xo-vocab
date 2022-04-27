@@ -250,6 +250,7 @@ function finishGame(){
                     refUsers.child(currentUser.uid).update({
                         exp: parseInt(user.exp) + addExp
                     })
+                })
                 // แนะนำให้ใส่เพิ่ม exp ตรงนี้
                 
 
