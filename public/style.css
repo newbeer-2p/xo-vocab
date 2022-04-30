@@ -19,11 +19,10 @@ body{
 
 header{
     background-color: var(--color2);
-    height: 75px;
 }
 
 .nvbar {
-    height: 100%;
+    height: 75px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -39,7 +38,7 @@ header{
 }
 
 .nvbar-menu i{
-    font-size: 54px;
+    font-size: 30px;
 }
 
 .nvbar-text{
@@ -54,6 +53,23 @@ header{
     vertical-align: middle;
     background-color: transparent;
     border: none;
+}
+
+#btn-logout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#btn-logout>div{
+    transform: translateY(5px);
+}
+#btn-logout>div:hover{
+    color: white;
+}
+
+#btnLogout>div{
+    transform: translateY(-10px);
 }
 
 #profile-name{
@@ -309,6 +325,13 @@ p {
 #btnLS{
     background-color: white;
     border: 1px solid black;
+}
+#btnSignup{
+    padding: 0;
+    color: black;
+}
+#login-input{
+    width: 400px;
 }
 .chooseimg{
     display: flex;

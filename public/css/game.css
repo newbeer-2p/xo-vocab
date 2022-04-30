@@ -79,6 +79,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    /* width: 100vw; */
 }
 
 #game-box>div>div{
@@ -158,4 +159,8 @@
 
 #vocabModalLabel .vocabModal-time{
     margin-right: 10px;
+}
+
+#imganswer{
+    width: 100%;
 }

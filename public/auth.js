@@ -39,7 +39,7 @@ const loginForm = document.querySelector("#login-form");
 loginForm.addEventListener("submit", loginUser);
 
 const loginFeedback = document.querySelector("#feedback-msg-login");
-const loginModal = new bootstrap.Modal(document.querySelector("#modal-login"));
+// const loginModal = new bootstrap.Modal(document.querySelector("#modal-login"));
 
 function loginUser(event) {
     event.preventDefault();
@@ -50,7 +50,7 @@ function loginUser(event) {
             loginFeedback.style = `color:green`;
             loginFeedback.innerHTML = `<i class="bi bi-check-circle-fill"></i> login Complete.`;
             setTimeout(function (){
-                loginModal.hide();
+                // loginModal.hide();
                 window.location.href = "./lobby.html"
             }, 1000);
         })

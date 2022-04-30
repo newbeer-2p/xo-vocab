@@ -1,0 +1,143 @@
+.nvbar-mobile{
+    display: none;
+    height: 40px;
+}
+
+.nvbar-mobile .nvbar-logo{
+    height: 25px;
+    text-align: center;
+}
+
+.nvbar-mobile .nvbar-text{
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.profile-mobile{
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    .nvbar{
+        display: none;
+    }
+
+    .nvbar-mobile{
+        display: block;
+    }
+
+    .homeimg{
+        height: 250px;
+    }
+
+    #login-input{
+        width: calc(100vw - 50px);
+    }
+
+    #lobby-box{
+        height: calc(100vh - 40px);
+    }
+
+    #leaderboard-box{
+        display: none;
+    }
+
+    #lobby-box>.logo{
+        height: 30vh;
+    }
+
+    #btnLogout i{
+        font-size: 20px;
+    }
+
+    #profile-info{
+        width: calc(100vw - 25px);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 0px;
+        text-align: center;
+        height: fit-content;
+        padding: 10px;
+    }
+
+    #profile-info #profile-img{
+        width: 100px;
+        height: 100px;
+    }
+
+    #profile-detail>#profile-stat{
+        /* display: block; */
+        gap: 20px;
+    }
+
+    .game-item{
+        width: 100px;
+        height: 100px;
+    }
+
+    .game-item>div{
+        width: 75px;
+        height: 75px;
+    }
+
+    .game-info-user{
+        display: block;
+        gap: 0;
+    }
+
+    .game-info-user>.game-user-img{
+        width: 75px;
+        height: 75px;
+        border-radius: 7.5px;
+    }
+
+    #game-user-info{
+        height: fit-content;
+        text-align: center!important;
+    }
+
+    #game-info-user-o>.game-user-info{
+        text-align: center;
+    }
+
+    #game-info-user-o{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-end;
+    }
+
+    .game-user-name{
+        font-size: 20px!important;
+    }
+
+    .game-user-info>.game-user-level{
+        transform: none;
+    }
+
+    .game-user-info>.game-user-player{
+        font-size: 16px;
+    }
+
+    .game-user-player>span{
+        font-size: 24px!important;
+    }
+
+    .game-info-item>#game-info-category{
+        font-size: 16px;
+    }
+
+    .game-info-item>#game-info-turn{
+        font-size: 16px;
+    }
+
+    #game-info-turn>span{
+        font-size: 24px;
+    }
+
+    .game-info-item>#game-info-player{
+        font-size: 16px;
+    }
+}

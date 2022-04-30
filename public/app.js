@@ -26,7 +26,7 @@ firebase.auth().onAuthStateChanged((user) => {
     if (user){
         refUsers.child(user.uid).once("value", (data) => {
             const userProfile = data.val()
-            $("#profile-name span").html(userProfile.name)
+            $("#profile-name>span").html(userProfile.name)
         })
 
         refOnline.once("value", (data) => {
