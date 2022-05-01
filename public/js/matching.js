@@ -259,7 +259,9 @@ refRooms.on("value", (data) => {
 
 function randomVocab(room, user1, user2){
     let rdmVocab = [];
-    const minLevel = Math.min(Math.floor(parseInt(user1.level)) / 10, Math.floor(parseInt(user2.level) / 10))
+    let user1Level = Math.ceil(user1.exp / 50);
+    let user2Level = Math.ceil(user2.exp / 50);
+    const minLevel = Math.min(Math.floor(user1Level / 10), Math.floor(user2Level / 10))
     
     $.getJSON("data/vocabulary.json", function(result){
         const vocabs = result[room.category]

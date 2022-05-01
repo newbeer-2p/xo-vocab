@@ -28,7 +28,7 @@ function setUpGame(room){
                 src: `./img/profiles/${user.img}.png`
             })
             $(`#game-info-user-${player} .game-user-name`).html(user.name)
-            $(`#game-info-user-${player} .game-user-level`).html(`Level : ${user.level}`)
+            $(`#game-info-user-${player} .game-user-level`).html(`Level : ${Math.ceil((user.exp) / 50)}`)
 
             if (!room.winner && room.turn.toLowerCase() === player){
                 $("#game-info-turn span").html(room[`user-${room.turn.toLowerCase()}-id`] == currentUser.uid ? "YOU!" : user.name)
