@@ -1,17 +1,12 @@
-//refUsers.orderByChild("win").limitToFirst(10).on("child_added", (snap) => {
-//    console.log(snap.val());
-//});
-
-
 
 //check num User//
 var totalOfUser = 0;
 refUsers.orderByChild("win").on("value", (data) => {
     const newData = sortObjectReverse(data)//
     const currentUser = firebase.auth().currentUser
-    console.log(currentUser)
+    //console.log(currentUser)
     data.forEach((snap) => {
-        console.log(snap.val().uid);
+        //console.log(snap.val().uid);
         totalOfUser += 1;
 })
 
@@ -19,13 +14,11 @@ refUsers.orderByChild("win").on("value", (data) => {
 
 var userRank = totalOfUser;
     data.forEach((snap) => {
-    const currentUser = firebase.auth().currentUser
-    console.log(snap.val().name);
+    //console.log(snap.val().name);
     if(currentUser.uid == snap.val().uid){
-        console.log("halo")
         $("#userRank span").html(userRank)
     }
-    console.log(userRank)
+    //console.log(userRank)
     userRank = userRank-1;
 })
 });
@@ -47,6 +40,7 @@ function sortObjectReverse(obj){
 
 
 
+//Leaderboard 10 rank//
 refUsers.orderByChild("win").limitToLast(10).once('value', function(snapshot) {
     var tr;
     var rank = 10;

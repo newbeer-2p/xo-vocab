@@ -17,17 +17,18 @@ function setUpProfile(user){
 
     refUsers.child(user.uid).once("value", (data) => {
         userProfile = data.val()
-        
+        userEXP = userProfile.exp % 50;
+        userLevel = Math.ceil(userProfile.exp / 50);
         $("#profile-img img").attr("src", `./img/profiles/${userProfile.img}.png`)
         $("#profile-username").html(userProfile.name)
         $("#profile-email").html(userProfile.email)
         $("#profile-win").html(`Win : ${userProfile.win}`)
         $("#profile-lose").html(`Lose : ${userProfile.lose}`)
-        $("#profile-level").html(`Level : ${userProfile.level}`)
-        $("#profile-next-to").html(`Next to level ${userProfile.level+1}`)
-        $("#profile-exp-percent").html(`${userProfile.exp} / 50`)
+        $("#profile-level").html(`Level : ${userLevel}`)
+        $("#profile-next-to").html(`Next to level ${userLevel+1}`)
+        $("#profile-exp-percent").html(`${userEXP} / 50`)
         $("#profile-exp-progress-bar").attr({
-            style: `--exp-percent: calc(${(userProfile.exp)} / 50 * 100%)`
+            style: `--exp-percent: calc(${(userEXP)}  / 50 * 100%)`
         })
     })
 
