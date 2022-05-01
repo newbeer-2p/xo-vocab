@@ -1,4 +1,5 @@
 const signupForm = document.querySelector("#signup-form");
+const signupForm1 = document.querySelector("#signup-form_1");
 signupForm.addEventListener("submit", createUser);
 
 const signupFeedback = document.querySelector("#feedback-msg-signup");
@@ -9,6 +10,7 @@ function createUser(event) {
     const name = signupForm['input-name-signup'].value
     const email = signupForm['input-email-signup'].value;
     const pwd = signupForm['input-password-signup'].value;
+    const pic = signupForm1['profileimg'].src;
     firebase.auth().createUserWithEmailAndPassword(email, pwd)
     .then(() => {
             signupFeedback.style = `color:green`;
@@ -26,7 +28,7 @@ function createUser(event) {
                 lose: 0,
                 level: 1,
                 exp: 0,
-                img: "profile01"
+                img: pic
             });
         })
         .catch((error) => {

@@ -128,28 +128,30 @@
             <h5 class="modal-title">Signup</h5>
             <button type="button" class="btn-close btn-cancel" data-bs-dismiss="modal" aria-lable="Close"></button>
           </div>
-          <form id="signup-form" action="" class="">
             <div class="modal-body">
               <div class="chooseimg">
-                <div class="signimgbox"><img src="./img/profiles/profile01.png" alt="" ></div>
+                <form id="signup-form_1" action="" class="">
+                <div class="signimgbox"><img src="./img/profiles/profile01.png" id="profileimg" alt="" ></div>
+              </form>
                 <div class="textbutton">
                   <div><p style="margin: 0;">Choose Image:</p></div>
                   <div class="boxtextbutton">
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button>4</button>
-                    <button>5</button>
-                    <button>6</button>
-                    <button>7</button>
-                    <button>8</button>
-                    <button>9</button>
-                    <button>10</button>
-                    <button>11</button>
-                    <button>12</button>
+                    <button onclick="imgbutton('1')">1</button>
+                    <button onclick="imgbutton('2')">2</button>
+                    <button onclick="imgbutton('3')">3</button>
+                    <button onclick="imgbutton('4')">4</button>
+                    <button onclick="imgbutton('5')">5</button>
+                    <button onclick="imgbutton('6')">6</button>
+                    <button onclick="imgbutton('7')">7</button>
+                    <button onclick="imgbutton('8')">8</button>
+                    <button onclick="imgbutton('9')">9</button>
+                    <button onclick="imgbutton('10')">10</button>
+                    <button onclick="imgbutton('11')">11</button>
+                    <button onclick="imgbutton('12')">12</button>
                   </div>
                 </div>
               </div>
+              <form id="signup-form" action="" class="">
               <p>Name:</p>
               <input id="input-name-signup" type="name" class="form-control" />
               <br>
@@ -176,5 +178,47 @@
     
     <script src="app.js"></script>
     <script type="text/javascript" src="auth.js"></script>
+    <script>
+      function imgbutton(value){
+        console.log(value)
+        const img = document.getElementById("profileimg")
+        if(value == 1){
+          img.src = "./img/profiles/profile01.png" 
+        }
+        if(value == 2){
+          img.src = "./img/profiles/profile02.png" 
+        }
+        if(value == 3){
+          img.src = "./img/profiles/profile03.png" 
+        }
+        if(value == 4){
+          img.src = "./img/profiles/profile04.png" 
+        }
+        if(value == 5){
+          img.src = "./img/profiles/profile05.png" 
+        }
+        if(value == 6){
+          img.src = "./img/profiles/profile06.png" 
+        }
+        if(value == 7){
+          img.src = "./img/profiles/profile07.png" 
+        }
+        if(value == 8){
+          img.src = "./img/profiles/profile08.png" 
+        }
+        if(value == 9){
+          img.src = "./img/profiles/profile09.png" 
+        }
+        if(value == 10){
+          img.src = "./img/profiles/profile10.png" 
+        }
+        if(value == 11){
+          img.src = "./img/profiles/profile11.png" 
+        }
+        if(value == 12){
+          img.src = "./img/profiles/profile12.png" 
+        }
+      }
+    </script>
   </body>
 </html>

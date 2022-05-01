@@ -100,22 +100,23 @@ document.querySelectorAll(".game-item div img").forEach(el => {
 
         $("#vocabModalLabel").val(pos)
         $("#vocabModalLabel .vocabModal-table").html(pos)
-        const img = document.getElementById('imganswer')
-        img.src = el.src
-        var ansfill = document.getElementById('ansfill')
-        var getget = el.src.substr(33)
-        var getget1 = getget.substr(0, getget.indexOf("."))
-        test = getget1
-        console.log(ansfill.hasChildNodes())
+        refRooms.child(roomInfo.uid).child("tables").child($('#vocabModalLabel').val()).once("value", (data) => {
+            var datastr = data.val();
+            const img = document.getElementById('imganswer')
+            img.src = datastr.img
+            var ansfill = document.getElementById('ansfill')
+            console.log(datastr.img)
+            console.log(ansfill.hasChildNodes())
         if(ansfill.hasChildNodes()){
             ansfill.innerHTML = "";
             
         }
-        for(let i = 0; i<getget.indexOf(".");i++){
+        for(let i = 0; i<name_el.length;i++){
             var p = document.createElement('p')
             p.innerHTML = "_"
             ansfill.appendChild(p)
         }
+          })    
         $("#vocabModal").modal("show")
     })
 })
