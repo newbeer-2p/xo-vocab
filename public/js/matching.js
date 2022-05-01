@@ -167,7 +167,7 @@ function updateFindMatchContent(cmd, room={}){
         document.querySelectorAll(".join-finding").forEach((el) => {$(el).show()})
         $("#inputCategory").val(room.category)
         $("#inputCategory").attr({disabled: "disabled"})
-        $("#btn-join").html(`[${room.category}] Waiting for Player... (${room.time})`)
+        $("#btn-join").html(`[${room.category}] Waiting for Player... (${room.time ?? 0})`)
         $(".modal-text").html(`Waiting for Player... (${room.time ?? 0})`)
     }
     else if (cmd === "found") {
