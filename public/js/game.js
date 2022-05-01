@@ -259,18 +259,19 @@ function finishGame(){
                     })
                 }
                 // แนะนำให้ใส่เพิ่ม exp ตรงนี้
-                
+                let userEXP = (userProfile.exp + addExp) % 50;
+                let userLevel = Math.ceil((userProfile.exp + addExp) / 50);
 
                 $("#profile-exp-progress-bar").attr({
-                    style: `--exp-percent: calc(${(userProfile.exp)} / 50 * 100%)`
+                    style: `--exp-percent: calc(${(userEXP)} / 50 * 100%)`
                 })
-                $("#profile-next-to span").html(parseInt(userProfile.level) + 1)
-                $("#profile-exp-percent").html(`(+ ${addExp}) <span>${userProfile.exp + addExp}</span> / 50`)
+                $("#profile-next-to span").html(parseInt(userLevel) + 1)
+                $("#profile-exp-percent").html(`(+ ${addExp}) <span>${userEXP}</span> / 50`)
                 setTimeout(() => {
                     $("#profile-exp-progress-bar").attr({
-                        style: `--exp-percent: calc(${(userProfile.exp + addExp)} / 50 * 100%)`
+                        style: `--exp-percent: calc(${(userEXP)} / 50 * 100%)`
                     })
-                    if (Math.floor((parseInt(userProfile.exp) + addExp) / 50)){
+                    if (Math.floor((parseInt(userProfile.exp)) / 50)){
                         setTimeout(() => {
                             levelUp(userProfile)
                         }, 1000)

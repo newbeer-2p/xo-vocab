@@ -541,251 +541,301 @@
     "Animal": [
         {
             "name": "ant",
+            "nameTH": "มด",
             "img": "./img/animals/ant.png",
             "level": 1
         },
         {
             "name": "alligator ",
+            "nameTH": "จระเข้",
             "img": "./img/animals/alligator.png",
             "level": 3
         },
         {
             "name": "bat",
+            "nameTH": "ค้างคาว",
             "img": "./img/animals/bat.png",
             "level": 1
         },
         {
             "name": "bird",
+            "nameTH": "นก",
             "img": "./img/animals/bird.png",
             "level": 1
         },
         {
             "name": "bear",
+            "nameTH": "หมี",
             "img": "./img/animals/bear.png",
             "level": 1
         },
         {
             "name": "bee",
+            "nameTH": "ผึ้ง",
             "img": "./img/animals/bee.png",
             "level": 1
         },
         {
             "name": "buffalo",
+            "nameTH": "ควาย",
             "img": "./img/animals/buffalo.png",
             "level": 3
         },
         {
             "name": "butterfly",
+            "nameTH": "ผีเสื้อ",
             "img": "./img/animals/butterfly",
             "level": 3
         },
         {
             "name": "cat",
+            "nameTH": "แมว",
             "img": "./img/animals/cat.png",
             "level": 1
         },
         {
             "name": "cow",
+            "nameTH": "วัว",
             "img": "./img/animals/cow.png",
             "level": 1
         },
         {
             "name": "chicken",
+            "nameTH": "ไก่",
             "img": "./img/animals/chicken.png",
             "level": 2
         },
         {
             "name": "crab",
+            "nameTH": "ปู",
             "img": "./img/animals/crab.png",
             "level": 1
         },
         {
             "name": "cobra",
+            "nameTH": "งูเห่า",
             "img": "./img/animals/cobra.png",
             "level": 2
         },
         {
             "name": "crocodile",
+            "nameTH": "จระเข้",
             "img": "./img/animals/crocodile.png",
             "level": 3
         },
         {
             "name": "deer",
+            "nameTH": "กวาง",
             "img": "./img/animals/deer.png",
             "level": 1
         },
         {
             "name": "donkey",
+            "nameTH": "ลา",
             "img": "./img/animals/donkey.png",
             "level": 2
         },
         {
             "name": "dog",
+            "nameTH": "สุนัข",
             "img": "./img/animals/dog.png",
             "level": 1
         },
         {
             "name": "duck",
+            "nameTH": "เป็ด",
             "img": "./img/animals/duck.png",
             "level": 1
         },
         {
             "name": "elephant",
+            "nameTH": "ช้าง",
             "img": "./img/animals/elephant.png",
             "level": 2
         },
         {
             "name": "earthworm",
+            "nameTH": "ไส้เดือน",
             "img": "./img/animals/earthworm.png",
             "level": 3
         },
         {
             "name": "dragonfly",
+            "nameTH": "แมลงปอ",
             "img": "./img/animals/dragonfly.png",
             "level": 2
         },
         {
             "name": "fox",
+            "nameTH": "สุนัขจิ้งจอก",
             "img": "./img/animals/fox.png",
             "level": 1
         },
         {
             "name": "fly",
+            "nameTH": "แมลงวัน",
             "img": "./img/animals/fly.png",
             "level": 1
         },
         {
             "name": "fish",
+            "nameTH": "ปลา",
             "img": "./img/animals/fish.png",
             "level": 1
         },
         {
             "name": "goat",
+            "nameTH": "แพะ",
             "img": "./img/animals/goat.png",
             "level": 1
         },
         {
             "name": "goose",
+            "nameTH": "ห่าน",
             "img": "./img/animals/goose.png",
             "level": 2
         },
         {
             "name": "gorilla",
+            "nameTH": "กอลิล่า",
             "img": "./img/animals/gorilla.png",
             "level": 2
         },
         {
             "name": "giraffe",
+            "nameTH": "ยีราฟ",
             "img": "./img/animals/giraffe.png",
             "level": 3
         },
         {
             "name": "goldfish",
+            "nameTH": "ปลาทอง",
             "img": "./img/animals/goldfish.png",
             "level": 2
         },
         {
             "name": "hawk",
+            "nameTH": "เหยี่ยว",
             "img": "./img/animals/hawk.png",
             "level": 1
         },
         {
             "name": "hippopotamus",
+            "nameTH": "ฮิปโป",
             "img": "./img/animals/hippopotamus.png",
             "level": 3
         },
         {
             "name": "horse",
+            "nameTH": "ม้า",
             "img": "./img/animals/house.png",
             "level": 2
         },
         {
             "name": "kangaroo",
+            "nameTH": "จิ้งโจ้",
             "img": "./img/animals/kangaroo.png",
             "level": 2
         },
         {
             "name": "koala",
+            "nameTH": "โคล่า",
             "img": "./img/animals/koala.png",
             "level": 2
         },
         {
             "name": "lion",
+            "nameTH": "สิงโต",
             "img": "./img/animals/lion.png",
             "level": 1
         },
         {
             "name": "lizard",
+            "nameTH": "กิ้งก่า",
             "img": "./img/animals/lizard.png",
             "level": 1
         },
         {
             "name": "monkey",
+            "nameTH": "ลิง",
             "img": "./img/animals/monkey.png",
             "level": 2
         },
         {
             "name": "mosquito",
+            "nameTH": "ยุง",
             "img": "./img/animals/mosquito.png",
             "level": 3
         },
         {
             "name": "panda",
+            "nameTH": "แพนด้า",
             "img": "./img/animals/panda.png",
             "level": 1
         },
         {
             "name": "pig",
+            "nameTH": "หมู",
             "img": "./img/animals/pig.png",
             "level": 1
         },
         {
             "name": "rabbit",
+            "nameTH": "กระต่าย",
             "img": "./img/animals/rabbit.png",
             "level": 1
         },
         {
             "name": "sheep",
+            "nameTH": "แกะ",
             "img": "./img/animals/sheep.png",
             "level": 1
         },
         {
             "name": "snake",
+            "nameTH": "งู",
             "img": "./img/animals/snake.png",
             "level": 1
         },
         {
             "name": "spider",
+            "nameTH": "แมงมุม",
             "img": "./img/animals/spider.png",
             "level": 1
         },
         {
             "name": "shark",
+            "nameTH": "ฉลาม",
             "img": "./img/animals/shark.png",
             "level": 1
         },
         {
             "name": "turkey",
+            "nameTH": "ไก่งวง",
             "img": "./img/animals/turkey.png",
             "level": 1
         },
         {
             "name": "tiger",
+            "nameTH": "เสือ",
             "img": "./img/animals/tiger.png",
             "level": 1
         },
         {
             "name": "wolf",
+            "nameTH": "หมาป่า",
             "img": "./img/animals/wolf.png",
             "level": 1
         },
         {
             "name": "whale",
+            "nameTH": "วาฬ",
             "img": "./img/animals/whale.png",
             "level": 1
         },
         {
             "name": "zebra",
+            "nameTH": "ม้าลาย",
             "img": "./img/animals/zebra.png",
             "level": 2
         }
