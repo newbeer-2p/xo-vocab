@@ -105,7 +105,9 @@ document.querySelectorAll(".game-item div img").forEach(el => {
             const img = document.getElementById('imganswer')
             img.src = datastr.img
             var ansfill = document.getElementById('ansfill')
+            var name_el = datastr.name
             console.log(datastr.img)
+            test = name_el
             console.log(ansfill.hasChildNodes())
         if(ansfill.hasChildNodes()){
             ansfill.innerHTML = "";
@@ -116,15 +118,19 @@ document.querySelectorAll(".game-item div img").forEach(el => {
             p.innerHTML = "_"
             ansfill.appendChild(p)
         }
-          })    
+          })
+        document.getElementById('answer').value = "";
+        document.querySelector("#feedback-msg-answer").innerText = ""
         $("#vocabModal").modal("show")
     })
 })
 var test = ""
 $("#btn-answer").click(() => {
     console.log(test)
-    
-    // When click and answer TRUE
+    const useranswer = document.getElementById('answer').value
+    const answerFeedback = document.querySelector("#feedback-msg-answer");
+    if(useranswer == test){
+        // When click and answer TRUE
     refRooms.child(roomInfo.uid).child("tables").child($('#vocabModalLabel').val()).update({
         own : roomInfo.turn
     })
@@ -132,7 +138,14 @@ $("#btn-answer").click(() => {
         turn: roomInfo.turn === "X" ? "O" : "X",
         time: 59
     })
+    $("#vocabModal").val("")
     $("#vocabModal").modal("hide")
+    }
+    else{
+        answerFeedback.style = `color:crimson`;
+        answerFeedback.innerText = `Your answer is incorrect`;
+    }
+    
 })
 
 function checkWinner(room){

@@ -344,20 +344,17 @@ p {
 .chooseimg img{
     width: 100%;
 }
-.textbutton{
+/* .textbutton{
     display: flex;
     flex-direction: column;
     flex: 1 1 100%;
-}
+} */
 .boxtextbutton{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
-.boxtextbutton1{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 5px;
+.boxtextbutton button{
+    margin: 5px;
 }
 
 .signupbox{

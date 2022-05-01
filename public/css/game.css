@@ -164,3 +164,20 @@
 #imganswer{
     width: 100%;
 }
+.modal-body{
+    display: flex;
+    flex-direction: column;
+}
+#ansfill{
+    display: flex;
+    justify-content: center;
+}
+#ansfill p{
+    padding: 5px;
+    margin: 0 !important;
+    font-size: 2rem;
+}
+#feedback-msg-answer{
+    display: flex;
+    justify-content: end;
+}
