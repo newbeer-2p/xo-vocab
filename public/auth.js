@@ -11,9 +11,8 @@ function createUser(event) {
     const email = signupForm['input-email-signup'].value;
     const pwd = signupForm['input-password-signup'].value;
     const pic = signupForm1['profileimg'].src;
-    var img1 = pic.substr(35)
-    var subimg = img1.substr(0, img1.indexOf('.'))
-    console.log(subimg)
+    var img1 = pic.split("/")
+    var subimg = img1[img1.length-1].split(".")[0]
     firebase.auth().createUserWithEmailAndPassword(email, pwd)
     .then(() => {
             signupFeedback.style = `color:green`;
