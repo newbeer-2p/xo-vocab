@@ -168,27 +168,25 @@ function checkWinner(room){
             win8 = data["tables"]["row-1-col-3"]["own"] == turn && data["tables"]["row-2-col-2"]["own"] == turn && data["tables"]["row-3-col-1"]["own"] == turn 
 
             if ((win1 || win2 || win3 || win4 || win5 || win6 || win7 || win8)){
-                if (currentUser.uid == room[`user-${turn}`]){
-                    refRooms.child(room.uid).update({
-                        status: "finish",
-                        winner: turn
+                refRooms.child(room.uid).update({
+                    status: "finish",
+                    winner: turn
+                })
+                const idWin = data[`user-${turn.toLowerCase()}-id`]
+                const idLose = data[`user-${turn === "X" ? "o" : "x"}-id`]
+                refUsers.child(idWin).once("value", (data) => {
+                    user = data.val()
+                    refUsers.child(idWin).update({
+                        win: parseInt(user.win) + 1
                     })
-                    const idWin = data[`user-${turn.toLowerCase()}-id`]
-                    const idLose = data[`user-${turn === "X" ? "o" : "x"}-id`]
-                    refUsers.child(idWin).once("value", (data) => {
-                        user = data.val()
-                        refUsers.child(idWin).update({
-                            win: parseInt(user.win) + 1
-                        })
+                })
+                refUsers.child(idLose).once("value", (data) => {
+                    user = data.val()
+                    refUsers.child(idLose).update({
+                        lose: parseInt(user.lose) + 1
                     })
-                    refUsers.child(idLose).once("value", (data) => {
-                        user = data.val()
-                        refUsers.child(idLose).update({
-                            lose: parseInt(user.lose) + 1
-                        })
-                    })
-                    return
-                }
+                })
+                return
             }
 
             if (data["tables"]["row-1-col-1"]["own"] && data["tables"]["row-1-col-2"]["own"] && data["tables"]["row-1-col-3"]["own"] && data["tables"]["row-2-col-1"]["own"] && data["tables"]["row-2-col-2"]["own"] && data["tables"]["row-2-col-3"]["own"] && data["tables"]["row-3-col-1"]["own"] && data["tables"]["row-3-col-2"]["own"] && data["tables"]["row-3-col-3"]["own"]){
