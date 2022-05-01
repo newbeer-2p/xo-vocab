@@ -293,248 +293,248 @@
         {
             "name": "knitting",
             "nameTH": "ถักไหมพรม",
-            "img": "./img/knitting.png",
+            "img": "./img/hobbies/knitting.png",
             "level": 2
         },
         {
             "name": "photography",
             "nameTH": "การถ่ายภาพ",
-            "img": "./img/photography.png",
+            "img": "./img/hobbies/photography.png",
             "level": 2
         },
         {
             "name": "ballet",
             "nameTH": "บัลเล่ต์",
-            "img": "./img/ballet.png",
+            "img": "./img/hobbies/ballet.png",
             "level": 2
         },
         {
             "name": "acting",
             "nameTH": "การแสดง",
-            "img": "./img/acting.png",
+            "img": "./img/hobbies/acting.png",
             "level": 2
         },
         {
             "name": "juggling",
             "nameTH": "การเล่นกล",
-            "img": "./img/juggling.png",
+            "img": "./img/hobbies/juggling.png",
             "level": 2
         },
         {
             "name": "banjo",
             "nameTH": "แบนโจ",
-            "img": "./img/banjo.png",
+            "img": "./img/hobbies/banjo.png",
             "level": 2
         },
         {
             "name": "guitar",
             "nameTH": "กีตาร์",
-            "img": "./img/guitar.png",
+            "img": "./img/hobbies/guitar.png",
             "level": 1
         },
         {
             "name": "drum",
             "nameTH": "กลอง",
-            "img": "./img/drum.png",
+            "img": "./img/hobbies/drum.png",
             "level": 1
         },
         {
             "name": "piano",
             "nameTH": "เปียโน",
-            "img": "./img/piano.png",
+            "img": "./img/hobbies/piano.png",
             "level": 1
         },
         {
             "name": "violin",
             "nameTH": "ไวโอลิน",
-            "img": "./img/violin.png",
+            "img": "./img/hobbies/violin.png",
             "level": 1
         },
         {
             "name": "singing",
             "nameTH": "ร้องเพลง",
-            "img": "./img/singing.png",
+            "img": "./img/hobbies/singing.png",
             "level": 1
         },
         {
             "name": "cooking",
             "nameTH": "ทำอาหาร",
-            "img": "./img/cooking.png",
+            "img": "./img/hobbies/cooking.png",
             "level": 1
         },
         {
             "name": "grilling",
             "nameTH": "การย่าง",
-            "img": "./img/grilling.png",
+            "img": "./img/hobbies/grilling.png",
             "level": 2
         },
         {
             "name": "billiard",
             "nameTH": "บิลเลียด",
-            "img": "./img/billiard.png",
+            "img": "./img/hobbies/billiard.png",
             "level": 3
         },
         {
             "name": "chess",
             "nameTH": "หมากรุก",
-            "img": "./img/chess.png",
+            "img": "./img/hobbies/chess.png",
             "level": 2
         },
         {
             "name": "domino",
             "nameTH": "โดมิโน่",
-            "img": "./img/domino.png",
+            "img": "./img/hobbies/domino.png",
             "level":1
         },
         {
             "name": "poker",
             "nameTH": "โป๊กเกอร์",
-            "img": "./img/poker.png",
+            "img": "./img/hobbies/poker.png",
             "level": 3
         },
         {
             "name": "trumpet",
             "nameTH": "ทรัมเป็ต",
-            "img": "./img/trumpet.png",
+            "img": "./img/hobbies/trumpet.png",
             "level": 2
         },
         {
             "name": "trombone",
             "nameTH": "ทรอมโบน",
-            "img": "./img/trombone.png",
+            "img": "./img/hobbies/trombone.png",
             "level": 2
         },
         {
             "name": "archery",
             "nameTH": "ยิงธนู",
-            "img": "./img/archery.png",
+            "img": "./img/hobbies/archery.png",
             "level": 3
         },
         {
             "name": "bowling",
             "nameTH": "โบว์ลิ่ง",
-            "img": "./img/bowling.png",
+            "img": "./img/hobbies/bowling.png",
             "level": 1
         },
         {
             "name": "cycling",
             "nameTH": "การปั่นจักรยาน",
-            "img": "./img/cycling.png",
+            "img": "./img/hobbies/cycling.png",
             "level": 1
         },
         {
             "name": "diving",
             "nameTH": "การดำน้ำ",
-            "img": "./img/diving.png",
+            "img": "./img/hobbies/diving.png",
             "level": 2
         },
         {
             "name": "camping",
             "nameTH": "ตั้งแคมป์",
-            "img": "./img/camping.png",
+            "img": "./img/hobbies/camping.png",
             "level": 2
         },
         {
             "name": "fishing",
             "nameTH": "ตกปลา",
-            "img": "./img/fishing.png",
+            "img": "./img/hobbies/fishing.png",
             "level": 1
         },
         {
             "name": "taekwondo",
             "nameTH": "เทควันโด",
-            "img": "./img/taekwondo.png",
+            "img": "./img/hobbies/taekwondo.png",
             "level": 1
         },
         {
             "name": "canoe",
             "nameTH": "เรือแคนู",
-            "img": "./img/canoe.png",
+            "img": "./img/hobbies/canoe.png",
             "level": 2
         },
         {
             "name": "karate",
             "nameTH": "คาราเต้",
-            "img": "./img/karate.png",
+            "img": "./img/hobbies/karate.png",
             "level": 1
         },
         {
             "name": "fencing",
             "nameTH": "ฟันดาบ",
-            "img": "./img/fencing.png",
+            "img": "./img/hobbies/fencing.png",
             "level": 3
         },
         {
             "name": "tennis",
             "nameTH": "เทนนิส",
-            "img": "./img/tennis.png",
+            "img": "./img/hobbies/tennis.png",
             "level": 1
         },
         {
             "name": "squash",
             "nameTH": "สควอช",
-            "img": "./img/squash.png",
+            "img": "./img/hobbies/squash.png",
             "level": 3
         },
         {
             "name": "badminton",
             "nameTH": "แบดมินตัน",
-            "img": "./img/badminton.png",
+            "img": "./img/hobbies/badminton.png",
             "level": 1
         },
         {
             "name": "sailing",
             "nameTH": "การแล่นเรือใบ",
-            "img": "./img/sailing.png",
+            "img": "./img/hobbies/sailing.png",
             "level": 3
 
         },
         {
             "name": "foosball",
             "nameTH": "ฟุตบอลโต๊ะ",
-            "img": "./img/foosball.png",
+            "img": "./img/hobbies/foosball.png",
             "level": 3
         },
         {
             "name": "jigsaw",
             "nameTH": "จิ๊กซอว์",
-            "img": "./img/jigsaw.png",
+            "img": "./img/hobbies/jigsaw.png",
             "level": 1
         },
         {
             "name": "yoga",
             "nameTH": "โยคะ",
-            "img": "./img/yoga.png",
+            "img": "./img/hobbies/yoga.png",
             "level": 2
         },
         {
             "name": "gymnastic",
             "nameTH": "ยิมนาสติก",
-            "img": "./img/gymnastic.png",
+            "img": "./img/hobbies/gymnastic.png",
             "level": 3
         },
         {
             "name": "golf",
             "nameTH": "ตีกอลฟ์",
-            "img": "./img/golf.png",
+            "img": "./img/hobbies/golf.png",
             "level": 1
         },
         {
             "name": "baseball",
             "nameTH": "เบสบอล",
-            "img": "./img/baseball.png",
+            "img": "./img/hobbies/baseball.png",
             "level": 2
         },
         {
             "name": "surfing",
             "nameTH": "กีฬาโต้คลื่น",
-            "img": "./img/surfing.png",
+            "img": "./img/hobbies/surfing.png",
             "level": 3
         },
         {
             "name": "boxing",
             "nameTH": "การชกมวย",
-            "img": "./img/boxing.png",
+            "img": "./img/hobbies/boxing.png",
             "level": 2
         }
     ],
