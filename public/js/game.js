@@ -45,7 +45,7 @@ function setUpGame(room){
         $("#game-info-turn").html(`<span> DRAW </span>`)
         setTimeout(() => {
             finishGame()
-        }, 3000)
+        }, 2000)
     }
     else if (room.winner){
         $(`#game-info-player`).html("")
@@ -55,7 +55,7 @@ function setUpGame(room){
         })
         setTimeout(() => {
             finishGame()
-        }, 3000)
+        }, 2000)
     }
     else{
         $(`#game-info-player span`).html(room.turn)
@@ -70,6 +70,7 @@ function setUpGame(room){
             $(`#${xoBox} img`).attr({
                 src: `./img/${xo.own}.png`
             })
+            // $(`#${xoBox}>div>div>div`).html(xo["nameTH"])
             // $(`#${xoBox}>div>div>div`).each((i, el) => {
                 // console.log(el);
             //     if (i == 0){
@@ -153,10 +154,10 @@ $("#btn-answer").click(() => {
     })
     answerFeedback.innerText = `NameTH : ${roomInfo["tables"][$("#vocabModalLabel").val()]["nameTH"]}`;
     answerFeedback.style = `color:green`;
-    setTimeout(() => {
-        $("#vocabModal").val("")
-        $("#vocabModal").modal("hide")
-    }, 2000)
+    // setTimeout(() => {
+    $("#vocabModal").val("")
+    $("#vocabModal").modal("hide")
+    // }, 2000)
     }
     else{
         answerFeedback.style = `color:crimson`;
@@ -191,18 +192,23 @@ function checkWinner(room){
                 })
                 const idWin = data[`user-${turn.toLowerCase()}-id`]
                 const idLose = data[`user-${turn === "X" ? "o" : "x"}-id`]
-                refUsers.child(idWin).once("value", (data) => {
-                    user = data.val()
-                    refUsers.child(idWin).update({
-                        win: parseInt(user.win) + 1
+                if (!room.scoreupdate){
+                    refUsers.child(idWin).once("value", (data) => {
+                        user = data.val()
+                        refUsers.child(idWin).update({
+                            win: parseInt(user.win) + 1
+                        })
                     })
-                })
-                refUsers.child(idLose).once("value", (data) => {
-                    user = data.val()
-                    refUsers.child(idLose).update({
-                        lose: parseInt(user.lose) + 1
+                    refUsers.child(idLose).once("value", (data) => {
+                        user = data.val()
+                        refUsers.child(idLose).update({
+                            lose: parseInt(user.lose) + 1
+                        })
                     })
-                })
+                    refRooms.child(room.uid).update({
+                        scoreupdate: "true"
+                    })
+                }
                 return
             }
 
@@ -258,10 +264,10 @@ function finishGame(){
     const currentUser = firebase.auth().currentUser
     for (const player of ["x", "o"])
     {
-        refUsers.child(roomInfo[`user-${player}-id`]).once("value", (data) => {
-            const userProfile = data.val()
-            let addExp = 10;
-            if (currentUser.uid == roomInfo[`user-${player}-id`]){
+        if (!roomInfo.expupdate && currentUser.uid == roomInfo[`user-${player}-id`]){
+            refUsers.child(roomInfo[`user-${player}-id`]).once("value", (data) => {
+                const userProfile = data.val()
+                let addExp = 10;
                 if (roomInfo.winner == "draw"){
                     $("#whoWin").html("Draw 😆")
                     $("#desGameOver").html("Good Job, " + userProfile.name)
@@ -285,9 +291,11 @@ function finishGame(){
                             exp: parseInt(user.exp) + addExp
                         })
                     })
-                    refRooms.child(roomInfo.uid).update({
-                        expupdate: "true"
-                    })
+                    if (player == "o"){
+                        refRooms.child(roomInfo.uid).update({
+                            expupdate: "true"
+                        })
+                    }
                 }
                 // แนะนำให้ใส่เพิ่ม exp ตรงนี้
                 let userEXP = (userProfile.exp + addExp) % 50;
@@ -308,9 +316,9 @@ function finishGame(){
                         }, 1000)
                     }
                 }, 1000)
-            }
-
-        })
+                
+            })
+        }
     }
 }
 
