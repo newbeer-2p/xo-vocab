@@ -102,6 +102,10 @@
 .game-item > div{
     width: 125px;
     height: 125px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .game-item > div:hover{
@@ -111,6 +115,15 @@
 .game-item > div > img{
     width: 100%;
 }
+
+/* .game-item > div > div{
+    position: absolute;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    line-height: 16px;
+    background-color: hsl(0, 100%, 0%, .50);
+} */
 
 #row-1-col-1, #row-2-col-1, #row-3-col-1, #row-1-col-2, #row-2-col-2, #row-3-col-2{
     border-right: 2px solid black;

@@ -43,7 +43,9 @@ function setUpGame(room){
     if (room.winner === "draw"){
         $(`#game-info-player`).html("")
         $("#game-info-turn").html(`<span> DRAW </span>`)
-        finishGame()
+        setTimeout(() => {
+            finishGame()
+        }, 3000)
     }
     else if (room.winner){
         $(`#game-info-player`).html("")
@@ -51,7 +53,9 @@ function setUpGame(room){
             const user = data.val()
             $("#game-info-turn").html(`Winner is <span>${user.name}</span>`)
         })
-        finishGame()
+        setTimeout(() => {
+            finishGame()
+        }, 3000)
     }
     else{
         $(`#game-info-player span`).html(room.turn)
@@ -66,6 +70,15 @@ function setUpGame(room){
             $(`#${xoBox} img`).attr({
                 src: `./img/${xo.own}.png`
             })
+            // $(`#${xoBox}>div>div>div`).each((i, el) => {
+                // console.log(el);
+            //     if (i == 0){
+            //         $(el).html(xo.name)
+            //     }
+            //     else{
+            //         $(el).html(xo["nameTH"])
+            //     }
+            // })
         }
         else{
             $(`#${xoBox} img`).attr({
@@ -106,9 +119,9 @@ document.querySelectorAll(".game-item div img").forEach(el => {
             img.src = datastr.img
             var ansfill = document.getElementById('ansfill')
             var name_el = datastr.name
-            console.log(datastr.img)
+            // console.log(datastr.img)
             test = name_el
-            console.log(ansfill.hasChildNodes())
+            // console.log(ansfill.hasChildNodes())
         if(ansfill.hasChildNodes()){
             ansfill.innerHTML = "";
             
@@ -126,7 +139,7 @@ document.querySelectorAll(".game-item div img").forEach(el => {
 })
 var test = ""
 $("#btn-answer").click(() => {
-    console.log(test)
+    // console.log(test)
     const useranswer = document.getElementById('answer').value
     const answerFeedback = document.querySelector("#feedback-msg-answer");
     if(useranswer.toLowerCase() == test.toLowerCase()){
@@ -138,8 +151,12 @@ $("#btn-answer").click(() => {
         turn: roomInfo.turn === "X" ? "O" : "X",
         time: 59
     })
-    $("#vocabModal").val("")
-    $("#vocabModal").modal("hide")
+    answerFeedback.innerText = `NameTH : ${roomInfo["tables"][$("#vocabModalLabel").val()]["nameTH"]}`;
+    answerFeedback.style = `color:green`;
+    setTimeout(() => {
+        $("#vocabModal").val("")
+        $("#vocabModal").modal("hide")
+    }, 2000)
     }
     else{
         answerFeedback.style = `color:crimson`;
@@ -252,7 +269,7 @@ function finishGame(){
                 }
                 else if (currentUser.uid == roomInfo[`user-${roomInfo.winner.toLowerCase()}-id`]){
                     addExp = 20
-                    console.log(userProfile.name);
+                    // console.log(userProfile.name);
                     $("#whoWin").html("You Win 😁")
                     $("#desGameOver").html("Congratulations, " + userProfile.name)
                 }
@@ -277,7 +294,7 @@ function finishGame(){
                 let userLevel = Math.ceil((userProfile.exp + addExp) / 50);
 
                 $("#profile-exp-progress-bar").attr({
-                    style: `--exp-percent: calc(${(userEXP - addExp)} / 50 * 100%)`
+                    style: `--exp-percent: calc(${(userEXP)} / 50 * 100%)`
                 })
                 $("#profile-next-to span").html(parseInt(userLevel) + 1)
                 $("#profile-exp-percent").html(`(+ ${addExp}) <span>${userEXP}</span> / 50`)
@@ -298,7 +315,7 @@ function finishGame(){
 }
 
 function levelUp(userProfile){
-    console.log("Level UP!, " + userProfile.name);
+    // console.log("Level UP!, " + userProfile.name);
 }
 
 function showDialog(message){

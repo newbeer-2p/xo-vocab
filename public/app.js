@@ -17,12 +17,12 @@ $("#btnLogout-mobile").click(logout)
 
 function logout(){
     firebase.auth().signOut()
-    console.log('Logout completed.');
+    // console.log('Logout completed.');
     window.location.href = "./"
 }
 
 firebase.auth().onAuthStateChanged((user) => {
-    console.log('User: ', user);
+    // console.log('User: ', user);
     if (user){
         refUsers.child(user.uid).once("value", (data) => {
             const userProfile = data.val()
