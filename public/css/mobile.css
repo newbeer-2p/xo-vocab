@@ -42,14 +42,27 @@
 
     #leaderboard-box{
         display: none;
+        position: absolute;
+        width: 100vw;
+        height: fit-content;
+        top: 0;
+        left: 0;
+    }
+
+    #btncloseLead{
+        display: block;
     }
 
     #lobby-box>.logo{
         height: 30vh;
     }
 
-    #btnLogout i{
+    .nvbar-menu-item i{
         font-size: 20px;
+    }
+    
+    .nvbar-menu{
+        gap: 10px;
     }
 
     #profile-info{
@@ -86,6 +99,11 @@
     .game-info-user{
         display: block;
         gap: 0;
+        overflow: hidden;
+        /* width: calc(500px / 3); */
+        display: flex;
+        align-items: center;
+        flex-direction: column;
     }
 
     .game-info-user>.game-user-img{
@@ -97,7 +115,14 @@
     #game-user-info{
         height: fit-content;
         text-align: center!important;
+        width: 100%;
     }
+
+    /* #game-user-info>.game-user-name{
+        width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    } */
 
     #game-info-user-o>.game-user-info{
         text-align: center;

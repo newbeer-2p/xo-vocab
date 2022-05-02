@@ -287,3 +287,10 @@ function randomVocab(room, user1, user2){
     });
     
 }
+
+$("#btnLead").click(toggleLeaderboard)
+$("#btncloseLead").click(toggleLeaderboard)
+
+function toggleLeaderboard(){
+    $("#leaderboard-box").toggle()
+}

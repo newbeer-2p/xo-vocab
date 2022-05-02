@@ -12,13 +12,13 @@ firebase.initializeApp(firebaseConfig);
 
 const refUsers = firebase.database().ref("UserList")
 
-const btnLogout = document.querySelector("#btnLogout");
-if (btnLogout){
-    btnLogout.addEventListener('click', () => {
-        firebase.auth().signOut()
-        console.log('Logout completed.');
-        window.location.href = "./"
-    })
+$("#btnLogout").click(logout)
+$("#btnLogout-mobile").click(logout)
+
+function logout(){
+    firebase.auth().signOut()
+    console.log('Logout completed.');
+    window.location.href = "./"
 }
 
 firebase.auth().onAuthStateChanged((user) => {

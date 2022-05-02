@@ -37,7 +37,7 @@ function setUpGame(room){
         })
     }
     
-    $(`#game-info-category`).html(`Category : ${room.category}`)
+    $(`#game-info-category`).html(`${room.category}`)
     $(`#game-info-time span`).html("&nbsp;" + room.time)
 
     if (room.winner === "draw"){
@@ -129,7 +129,7 @@ $("#btn-answer").click(() => {
     console.log(test)
     const useranswer = document.getElementById('answer').value
     const answerFeedback = document.querySelector("#feedback-msg-answer");
-    if(useranswer == test){
+    if(useranswer.toLowerCase() == test.toLowerCase()){
         // When click and answer TRUE
     refRooms.child(roomInfo.uid).child("tables").child($('#vocabModalLabel').val()).update({
         own : roomInfo.turn
@@ -277,7 +277,7 @@ function finishGame(){
                 let userLevel = Math.ceil((userProfile.exp + addExp) / 50);
 
                 $("#profile-exp-progress-bar").attr({
-                    style: `--exp-percent: calc(${(userEXP)} / 50 * 100%)`
+                    style: `--exp-percent: calc(${(userEXP - addExp)} / 50 * 100%)`
                 })
                 $("#profile-next-to span").html(parseInt(userLevel) + 1)
                 $("#profile-exp-percent").html(`(+ ${addExp}) <span>${userEXP}</span> / 50`)
